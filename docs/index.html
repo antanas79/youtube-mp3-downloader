@@ -32,13 +32,15 @@
 					document.getElementById(passedValue).setAttribute("selected", true)
 				}
 			}
+
 			function handleEnv (passedValue) {
 				var value = document.getElementById("env").value;
 				localStorage.setItem("env", passedValue || value)
 				if (passedValue){
-					document.getElementById(passedValue).setAttribute(passedValue, true)
+					document.getElementById("env").setAttribute(passedValue, true)
 				}
 			}
+			handleEnv(localStorage.getItem("env"))
 		  </script>
 		<script>
 			/**
