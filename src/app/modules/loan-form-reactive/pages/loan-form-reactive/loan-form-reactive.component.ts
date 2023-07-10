@@ -61,6 +61,7 @@ export class LoanFormReactiveComponent implements OnInit, OnDestroy, OnChanges {
 	iframeUrls = [];
 	titlesArray = [];
 	projects =  defaultProjects;
+	env =  localStorage.getItem("env");
 	
 
 	constructor(
@@ -162,6 +163,9 @@ export class LoanFormReactiveComponent implements OnInit, OnDestroy, OnChanges {
 									title: res.items[0].snippet.title,
 									videoId: resp.items[0].id.videoId,
 									iframeUrl: sanitizedUrl,
+									githubIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
+										"https://loader.to/api/button/?url=" + url
+									),
 									searchedValue: this.form.value.searchArray[
 										i
 									].searchValue

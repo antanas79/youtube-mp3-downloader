@@ -1,9 +1,9 @@
 <div>
 	<form [formGroup]="form" class="col-12 p-0 d-flex flex-wrap">
 		<div class="col-6 p-0">
-			<mat-form-field>
+			<mat-form-field style="height: 500px;">
 				<!-- <input matInput type="text" placeholder="Enter search" formControlName="search"> -->
-				<textarea matInput formControlName="search"></textarea>
+				<textarea style="height: 500px!important;" matInput formControlName="search"></textarea>
 				<mat-error></mat-error>
 			</mat-form-field>
 			<button mat-button type="submit" (click)="submit()">SUBMIT</button>
@@ -97,7 +97,12 @@
 			<div class="d-flex col-12 p-0" *ngFor="let video of foundVideosArray; let i = index;">
 				<div class="border-top border-bottom mb-2 d-flex align-items-center col-12 p-0">
 					<div class="col-3">
-						<app-loader [passedUrl]="foundVideosArray[i].iframeUrl"></app-loader>
+						<ng-container *ngIf="env === 'local'">
+							<app-loader [passedUrl]="foundVideosArray[i].iframeUrl"></app-loader>
+						</ng-container>
+						<ng-container *ngIf="env === 'github'">
+							<app-loader [passedUrl]="foundVideosArray[i].githubIframeUrl"></app-loader>
+						</ng-container>
 					</div>
 						
 					<a class="col-3" href="{{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}"

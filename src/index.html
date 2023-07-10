@@ -24,6 +24,10 @@
 			<option value="youtube-mp3-downloader-392415" id="youtube-mp3-downloader-392415">youtube-mp3-downloader-392415</option>
 			<option value="youtube-downloader-310313" id="youtube-downloader-310313">youtube-downloader-310313</option>
 		</select>
+		<select name="mode" id="env" onChange="handleEnv()">
+			<option value="local" id="youtube-mp3-downloader-392415">local</option>
+			<option value="github" id="youtube-downloader-310313">github</option>
+		</select>
 		<app-root></app-root>
 
 		<script>
@@ -32,6 +36,13 @@
 				localStorage.setItem("project", passedValue || value)
 				if (passedValue){
 					document.getElementById(passedValue).setAttribute("selected", true)
+				}
+			}
+			function handleEnv (passedValue) {
+				var value = document.getElementById("env").value;
+				localStorage.setItem("env", passedValue || value)
+				if (passedValue){
+					document.getElementById(passedValue).setAttribute(passedValue, true)
 				}
 			}
 		  </script>
