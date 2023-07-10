@@ -101,7 +101,7 @@
 							<app-loader [passedUrl]="foundVideosArray[i].iframeUrl"></app-loader>
 						</ng-container>
 						<ng-container *ngIf="env === 'github'">
-							<app-loader [passedUrl]="foundVideosArray[i].githubIframeUrl"></app-loader>
+							<iframe [src]="foundVideosArray[i].githubIframeUrl"></iframe>
 						</ng-container>
 					</div>
 						
