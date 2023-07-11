@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>AngularFormWithStepsV4</title>
-		<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-		<base href="/youtube-mp3-downloader/" /> 
+		<meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+		<base href="/" />
 		<!-- before deploying dont forget to change href  back, and while debugging set to "/" -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -12,80 +12,116 @@
 			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
 			rel="stylesheet"
 		/>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	</head>
 	<body class="mat-typography">
-	<script src="https://apis.google.com/js/api.js"></script>
+		<script src="https://apis.google.com/js/api.js"></script>
+		<div style="display: flex; justify-content: space-between">
+			<button style="height: 50px; width: 120px" onclick="triggerDownloadAll()">
+				trigger all download
+			</button>
+			<select
+				style="height: 50px; width: 200px"
+				name="project"
+				id="project"
+				onChange="handleProjectChange()"
+			>
+				<option value="youtube-mp3-downloader-392415" id="youtube-mp3-downloader-392415">
+					youtube-mp3-downloader-392415
+				</option>
+				<option value="youtube-downloader-310313" id="youtube-downloader-310313">
+					youtube-downloader-310313
+				</option>
+				<option value="youtube-mp3-downloader-3" id="youtube-mp3-downloader-3">
+					youtube-mp3-downloader-3
+				</option>
+			</select>
+			<select style="height: 50px; width: 120px" name="env" id="env" onChange="handleEnv()">
+				<option value="local" id="local">local</option>
+				<option value="github" id="github">github</option>
+			</select>
+			<select style="height: 50px; width: 200px" name="mode" id="mode" onChange="handleMode()">
+				<option value="instant-download" id="instant-download">instant-download</option>
+				<option value="download-after-button-click-all" id="download-after-button-click-all">
+					download after button click all
+				</option>
+			</select>
+		</div>
 
-		<select name="project" id="project" onChange="handelSelectChange()">
-			<option value="youtube-mp3-downloader-392415" id="youtube-mp3-downloader-392415">youtube-mp3-downloader-392415</option>
-			<option value="youtube-downloader-310313" id="youtube-downloader-310313">youtube-downloader-310313</option>
-		</select>
-		<select name="mode" id="env" onChange="handleEnv()">
-			<option value="local" id="youtube-mp3-downloader-392415">local</option>
-			<option value="github" id="youtube-downloader-310313">github</option>
-		</select>
 		<app-root></app-root>
 
 		<script>
-			function handelSelectChange (passedValue) {
+			function handleProjectChange(passedValue) {
 				var value = document.getElementById("project").value;
-				localStorage.setItem("project", passedValue || value)
-				if (passedValue){
-					document.getElementById(passedValue).setAttribute("selected", true)
+				localStorage.setItem("project", passedValue || value);
+				if (passedValue) {
+					document.getElementById(passedValue).setAttribute("selected", true);
 				}
 			}
-
-			function handleEnv (passedValue) {
+			handleProjectChange(localStorage.getItem("project"));
+			function handleEnv(passedValue) {
 				var value = document.getElementById("env").value;
-				localStorage.setItem("env", passedValue || value)
-				if (passedValue){
-					document.getElementById("env").setAttribute(passedValue, true)
+				localStorage.setItem("env", passedValue || value);
+				if (passedValue) {
+					document.getElementById(passedValue).setAttribute("selected", true);
 				}
 			}
-			handleEnv(localStorage.getItem("env"))
-		  </script>
-		<script>
+			handleEnv(localStorage.getItem("mode"));
+			function handleMode(passedValue) {
+				var value = document.getElementById("mode").value;
+				localStorage.setItem("mode", passedValue || value);
+				if (passedValue) {
+					document.getElementById(passedValue).setAttribute("selected", true);
+				}
+			}
+			handleMode(localStorage.getItem("mode"));
+
 			/**
 			 * Sample JavaScript code for youtube.search.list
 			 * See instructions for running APIs Explorer code samples locally:
 			 * https://developers.google.com/explorer-help/guides/code_samples#javascript
 			 */
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
-			const projects = (new URL(window.location.href)).searchParams.get("projects");
+			const projects = new URL(window.location.href).searchParams.get("projects");
 			if (projects) {
-				const parsedProjects = JSON.parse(projects)
+				const parsedProjects = JSON.parse(projects);
 				let arrOptions = [];
-				parsedProjects.forEach(p => arrOptions.push("<option value='" + p.name + "' id='" +  p.name + "'>" + p.name + "</option>"))
-				console.log({arrOptions})
+				parsedProjects.forEach((p) =>
+					arrOptions.push(
+						"<option value='" + p.name + "' id='" + p.name + "'>" + p.name + "</option>"
+					)
+				);
 				document.getElementById("project").innerHTML = arrOptions.join();
 			}
 			const project = localStorage.getItem("project");
-			gapi.load("client:auth2", function() {
+			gapi.load("client:auth2", function () {
 				if (project) {
-					console.log({project})
-					handelSelectChange(project)
-					gapi.auth2.init({client_id: project || "youtube-downloader-310313"}); //a.popliauskis
+					handelSelectChange(project);
+					gapi.auth2.init({
+						client_id: project || "youtube-downloader-310313" //a.popliauskis
+					});
 				}
 			});
-		  </script>
 
-		  <script>
 			function triggerAutoDownload(passedVideoId) {
 				if (document.getElementById(passedVideoId)) {
-					document.getElementById(passedVideoId).click()
+					document.getElementById(passedVideoId).click();
 				}
 			}
-			window.addEventListener('message', message => {
+
+			function triggerDownloadAll() {
+				const iframes = document.getElementsByTagName("iframe");
+				for (i in iframes) {
+					const contentWindow = iframes[i].contentWindow;
+					console.log({ contentWindow });
+					contentWindow.document.getElementById("downloadButton").click();
+				}
+			}
+			window.addEventListener("message", (message) => {
 				if (message.data.youtubeVideoId) {
-					triggerAutoDownload(message.data.youtubeVideoId)
+					triggerAutoDownload(message.data.youtubeVideoId);
 				}
 			});
-			
 		</script>
-
 	</body>
 </html>

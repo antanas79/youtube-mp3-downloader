@@ -5,9 +5,9 @@ const routes: Routes = [
 	{
 		path: "",
 		loadChildren: () =>
-			import(
-				"./modules/loan-form-reactive/loan-form-reactive.module"
-			).then((m) => m.LoanFormReactiveModule),
+			import("./modules/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.module").then(
+				(m) => m.YoutubeMp3DownloaderPanel
+			),
 		data: {
 			title: "Form page"
 		}
@@ -15,9 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })
-	],
+	imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],
 	exports: [RouterModule]
 })
 export class AppRoutingModule {}

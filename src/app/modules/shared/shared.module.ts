@@ -8,11 +8,8 @@ import { MatListModule } from "@angular/material/list";
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HttpClientModule } from "@angular/common/http";
-import { SafePipe } from './pipe/safe.pipe';
-
 
 @NgModule({
-	declarations: [SafePipe],
 	imports: [
 		CommonModule,
 		FormsModule,
@@ -33,8 +30,7 @@ import { SafePipe } from './pipe/safe.pipe';
 		MatButtonModule,
 		MatListModule,
 		MatSelectModule,
-		MatFormFieldModule,
-		SafePipe
+		MatFormFieldModule
 	]
 })
 export class SharedModule {}
