@@ -48,7 +48,10 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 	iframeUrls = [];
 	titlesArray = [];
 	projects = defaultProjects;
+	shouldStartDownload = false;
 	env = localStorage.getItem("env");
+	//@ts-ignore
+	mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
 
 	constructor(
 		@Inject(googleApiWindow) public window: googleApiWindow,
@@ -63,6 +66,10 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 			if (params["projects"] && JSON.parse(params["projects"])) {
 				this.projects = JSON.parse(params["projects"]);
 			}
+		});
+		console.log({
+			env: this.env,
+			mode: this.mode
 		});
 		this.authenticate()?.then(this.loadClient());
 		this.form = this._formBuilder.group({
@@ -79,6 +86,10 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 	}
 	get searchArray() {
 		return <FormArray>this.form.get("searchArray");
+	}
+
+	toggleShouldStartDownload() {
+		this.shouldStartDownload = !this.shouldStartDownload;
 	}
 
 	authenticate() {
@@ -143,6 +154,9 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 									iframeUrl: sanitizedUrl,
 									githubIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
 										"https://loader.to/api/button/?url=" + url
+									),
+									localIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
+										"assets/loader.html?url=" + url
 									),
 									searchedValue: this.form.value.searchArray[i].searchValue
 								});

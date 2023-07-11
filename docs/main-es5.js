@@ -19,11 +19,11 @@
 
   function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
     /***/
@@ -43,73 +43,101 @@
     },
 
     /***/
-    "6ZYd":
-    /*!*********************************************!*\
-      !*** ./src/app/modules/core/core.module.ts ***!
-      \*********************************************/
+    "4HhO":
+    /*!*********************************************************!*\
+      !*** ./src/app/modules/shared/services/getVideoInfo.ts ***!
+      \*********************************************************/
 
-    /*! exports provided: CoreModule */
+    /*! exports provided: GetVideoInfoService */
 
     /***/
-    function ZYd(module, __webpack_exports__, __webpack_require__) {
+    function HhO(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "CoreModule", function () {
-        return CoreModule;
+      __webpack_require__.d(__webpack_exports__, "GetVideoInfoService", function () {
+        return GetVideoInfoService;
       });
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
+      var _youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ../../youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component */
+      "Dadq");
       /* harmony import */
 
 
-      var _footer_footer_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./footer/footer.component */
-      "isrl");
-      /* harmony import */
-
-
-      var _header_header_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./header/header.component */
-      "STPy");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
+      /* harmony import */
 
-      var CoreModule = function CoreModule() {
-        _classCallCheck(this, CoreModule);
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/common/http */
+      "tk/3");
+
+      var GetVideoInfoService = /*#__PURE__*/function () {
+        function GetVideoInfoService(route, http) {
+          _classCallCheck(this, GetVideoInfoService);
+
+          this.route = route;
+          this.http = http;
+          this.projects = _youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_0__["defaultProjects"];
+        }
+
+        _createClass(GetVideoInfoService, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this = this;
+
+            this.route.queryParams.subscribe(function (params) {
+              if (params["projects"] && JSON.parse(params["projects"])) {
+                _this.projects = JSON.parse(params["projects"]);
+              }
+            });
+          }
+        }, {
+          key: "getVideoId",
+          value: function getVideoId(q) {
+            var _a;
+
+            return this.http.get("https://youtube.googleapis.com/youtube/v3/search?maxResults=1&q=" + q + "&key=" + ((_a = this.projects.find(function (p) {
+              return p.name === localStorage.getItem("project");
+            })) === null || _a === void 0 ? void 0 : _a.apiKey));
+          }
+        }, {
+          key: "getVideoTitleById",
+          value: function getVideoTitleById(id) {
+            var _a;
+
+            return this.http.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + ((_a = this.projects.find(function (p) {
+              return p.name === localStorage.getItem("project");
+            })) === null || _a === void 0 ? void 0 : _a.apiKey));
+          }
+        }]);
+
+        return GetVideoInfoService;
+      }();
+
+      GetVideoInfoService.ɵfac = function GetVideoInfoService_Factory(t) {
+        return new (t || GetVideoInfoService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]));
       };
 
-      CoreModule.ɵfac = function CoreModule_Factory(t) {
-        return new (t || CoreModule)();
-      };
-
-      CoreModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({
-        type: CoreModule
+      GetVideoInfoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+        token: GetVideoInfoService,
+        factory: GetVideoInfoService.ɵfac
       });
-      CoreModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({
-        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"]]]
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](CoreModule, {
-          declarations: [_footer_footer_component__WEBPACK_IMPORTED_MODULE_1__["FooterComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"]],
-          exports: [_footer_footer_component__WEBPACK_IMPORTED_MODULE_1__["FooterComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"]]
-        });
-      })();
       /***/
-
     },
 
     /***/
@@ -151,600 +179,15 @@
     },
 
     /***/
-    "FpXt":
-    /*!*************************************************!*\
-      !*** ./src/app/modules/shared/shared.module.ts ***!
-      \*************************************************/
+    "Dadq":
+    /*!***********************************************************************************************************************************!*\
+      !*** ./src/app/modules/youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component.ts ***!
+      \***********************************************************************************************************************************/
 
-    /*! exports provided: SharedModule */
-
-    /***/
-    function FpXt(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "SharedModule", function () {
-        return SharedModule;
-      });
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
-      /* harmony import */
-
-
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/forms */
-      "3Pt+");
-      /* harmony import */
-
-
-      var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/material/stepper */
-      "xHqg");
-      /* harmony import */
-
-
-      var _angular_material_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/material/input */
-      "qFsG");
-      /* harmony import */
-
-
-      var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @angular/material/button */
-      "bTqV");
-      /* harmony import */
-
-
-      var _angular_material_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @angular/material/list */
-      "MutI");
-      /* harmony import */
-
-
-      var _angular_material_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! @angular/material/select */
-      "d3UM");
-      /* harmony import */
-
-
-      var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! @angular/material/form-field */
-      "kmnG");
-      /* harmony import */
-
-
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! @angular/common/http */
-      "tk/3");
-      /* harmony import */
-
-
-      var _pipe_safe_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ./pipe/safe.pipe */
-      "QU/F");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-
-      var SharedModule = function SharedModule() {
-        _classCallCheck(this, SharedModule);
-      };
-
-      SharedModule.ɵfac = function SharedModule_Factory(t) {
-        return new (t || SharedModule)();
-      };
-
-      SharedModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({
-        type: SharedModule
-      });
-      SharedModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({
-        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]]
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](SharedModule, {
-          declarations: [_pipe_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]],
-          exports: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _pipe_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"]]
-        });
-      })();
-      /***/
-
-    },
+    /*! exports provided: googleApiWindow, defaultProjects, YoutubeMp3DownloaderPanelComponent */
 
     /***/
-    "JlfH":
-    /*!************************************************!*\
-      !*** ./src/app/modules/shared/classes/step.ts ***!
-      \************************************************/
-
-    /*! exports provided: Step */
-
-    /***/
-    function JlfH(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "Step", function () {
-        return Step;
-      });
-
-      var Step = function Step() {
-        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-        _classCallCheck(this, Step);
-
-        var _a;
-
-        this.label = (_a = options.label) !== null && _a !== void 0 ? _a : "";
-        this.key = options.key;
-        this.required = !!options.required;
-        this.order = options.order === undefined ? 1 : options.order;
-        this.isEditable = options.isEditable;
-        this.questions = options.questions;
-        this.text = options.text;
-      };
-      /***/
-
-    },
-
-    /***/
-    "Oxbd":
-    /*!*************************************************************!*\
-      !*** ./src/app/modules/shared/services/question.service.ts ***!
-      \*************************************************************/
-
-    /*! exports provided: QuestionService */
-
-    /***/
-    function Oxbd(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "QuestionService", function () {
-        return QuestionService;
-      });
-      /* harmony import */
-
-
-      var _classes_question_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ../classes/question-dropdown */
-      "tKVC");
-      /* harmony import */
-
-
-      var _classes_step__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ../classes/step */
-      "JlfH");
-      /* harmony import */
-
-
-      var _classes_question_textbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ../classes/question-textbox */
-      "n562");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! rxjs */
-      "qCKp");
-      /* harmony import */
-
-
-      var _loan_form_reactive_pages_loan_form_reactive_loan_form_reactive_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ../../loan-form-reactive/pages/loan-form-reactive/loan-form-reactive.component */
-      "UjCR");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! @angular/router */
-      "tyNb");
-      /* harmony import */
-
-
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! @angular/common/http */
-      "tk/3");
-
-      var QuestionService = /*#__PURE__*/function () {
-        function QuestionService( // @Inject(googleApiWindow) public window: googleApiWindow,
-        route, http) {
-          _classCallCheck(this, QuestionService);
-
-          this.route = route;
-          this.http = http;
-          this.projects = _loan_form_reactive_pages_loan_form_reactive_loan_form_reactive_component__WEBPACK_IMPORTED_MODULE_4__["defaultProjects"];
-        }
-
-        _createClass(QuestionService, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this = this;
-
-            this.route.queryParams.subscribe(function (params) {
-              if (params['projects'] && JSON.parse(params['projects'])) {
-                _this.projects = JSON.parse(params['projects']);
-              }
-            });
-          }
-        }, {
-          key: "getLoanStepsWithQuestions",
-          value: function getLoanStepsWithQuestions() {
-            var steps = [new _classes_step__WEBPACK_IMPORTED_MODULE_1__["Step"]({
-              required: true,
-              order: 0,
-              isEditable: true,
-              label: "Income",
-              questions: [new _classes_question_textbox__WEBPACK_IMPORTED_MODULE_2__["TextboxQuestion"]({
-                key: "income",
-                label: "Income",
-                placeholder: "Monthy Income After Taxes (EUR)",
-                required: true,
-                type: "number",
-                value: null
-              })]
-            }), new _classes_step__WEBPACK_IMPORTED_MODULE_1__["Step"]({
-              required: true,
-              order: 1,
-              isEditable: true,
-              label: "Contact Method",
-              questions: [new _classes_question_dropdown__WEBPACK_IMPORTED_MODULE_0__["DropdownQuestion"]({
-                key: "contactMethod",
-                label: "Contact method",
-                placeholder: "Contact method",
-                required: true,
-                options: [{
-                  key: "none",
-                  value: 0,
-                  label: "Select one"
-                }, {
-                  key: "phone",
-                  value: 1,
-                  label: "Phone call"
-                }, {
-                  key: "email",
-                  value: 2,
-                  label: "Email"
-                }, {
-                  key: "sms",
-                  value: 3,
-                  label: "SMS"
-                }],
-                value: 0
-              })]
-            }), new _classes_step__WEBPACK_IMPORTED_MODULE_1__["Step"]({
-              required: true,
-              order: 2,
-              isEditable: true,
-              label: "Contact",
-              questions: [new _classes_question_textbox__WEBPACK_IMPORTED_MODULE_2__["TextboxQuestion"]({
-                key: "contact",
-                label: "Phone number",
-                placeholder: "Enter phone (+370)",
-                required: true,
-                value: null,
-                type: "number"
-              })]
-            }), new _classes_step__WEBPACK_IMPORTED_MODULE_1__["Step"]({
-              required: true,
-              order: 3,
-              isEditable: true,
-              label: "Amount",
-              questions: [new _classes_question_textbox__WEBPACK_IMPORTED_MODULE_2__["TextboxQuestion"]({
-                key: "amount",
-                label: "Loan amount",
-                placeholder: "Loan Amount (EUR)",
-                type: "number",
-                required: true,
-                value: null,
-                order: 3
-              })]
-            })];
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(steps.sort(function (a, b) {
-              return a.order - b.order;
-            }));
-          }
-        }, {
-          key: "getVideoId",
-          value: function getVideoId(q) {
-            var _a;
-
-            return this.http.get('https://youtube.googleapis.com/youtube/v3/search?maxResults=1&q=' + q + '&key=' + ((_a = this.projects.find(function (p) {
-              return p.name === localStorage.getItem("project");
-            })) === null || _a === void 0 ? void 0 : _a.apiKey));
-          }
-        }, {
-          key: "getVideoTitleById",
-          value: function getVideoTitleById(id) {
-            var _a;
-
-            return this.http.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + ((_a = this.projects.find(function (p) {
-              return p.name === localStorage.getItem("project");
-            })) === null || _a === void 0 ? void 0 : _a.apiKey));
-          }
-        }]);
-
-        return QuestionService;
-      }();
-
-      QuestionService.ɵfac = function QuestionService_Factory(t) {
-        return new (t || QuestionService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"]));
-      };
-
-      QuestionService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
-        token: QuestionService,
-        factory: QuestionService.ɵfac
-      });
-      /***/
-    },
-
-    /***/
-    "QU/F":
-    /*!**************************************************!*\
-      !*** ./src/app/modules/shared/pipe/safe.pipe.ts ***!
-      \**************************************************/
-
-    /*! exports provided: SafePipe */
-
-    /***/
-    function QUF(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "SafePipe", function () {
-        return SafePipe;
-      });
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "jhN1");
-      /**
-       * Sanitize HTML
-       */
-
-
-      var SafePipe = /*#__PURE__*/function () {
-        /**
-         * Pipe Constructor
-         *
-         * @param _sanitizer: DomSanitezer
-         */
-        // tslint:disable-next-line
-        function SafePipe(_sanitizer) {
-          _classCallCheck(this, SafePipe);
-
-          this._sanitizer = _sanitizer;
-        }
-        /**
-         * Transform
-         *
-         * @param value: string
-         * @param type: string
-         */
-
-
-        _createClass(SafePipe, [{
-          key: "transform",
-          value: function transform(value, type) {
-            switch (type) {
-              case 'html':
-                return this._sanitizer.bypassSecurityTrustHtml(value);
-
-              case 'style':
-                return this._sanitizer.bypassSecurityTrustStyle(value);
-
-              case 'script':
-                return this._sanitizer.bypassSecurityTrustScript(value);
-
-              case 'url':
-                return this._sanitizer.bypassSecurityTrustUrl(value);
-
-              case 'resourceUrl':
-                return this._sanitizer.bypassSecurityTrustResourceUrl(value);
-
-              default:
-                return this._sanitizer.bypassSecurityTrustHtml(value);
-            }
-          }
-        }]);
-
-        return SafePipe;
-      }();
-
-      SafePipe.ɵfac = function SafePipe_Factory(t) {
-        return new (t || SafePipe)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]));
-      };
-
-      SafePipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({
-        name: "safe",
-        type: SafePipe,
-        pure: true
-      });
-      /***/
-    },
-
-    /***/
-    "STPy":
-    /*!*********************************************************!*\
-      !*** ./src/app/modules/core/header/header.component.ts ***!
-      \*********************************************************/
-
-    /*! exports provided: HeaderComponent */
-
-    /***/
-    function STPy(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "HeaderComponent", function () {
-        return HeaderComponent;
-      });
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-
-      var HeaderComponent = function HeaderComponent() {//do nothing
-
-        _classCallCheck(this, HeaderComponent);
-      };
-
-      HeaderComponent.ɵfac = function HeaderComponent_Factory(t) {
-        return new (t || HeaderComponent)();
-      };
-
-      HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-        type: HeaderComponent,
-        selectors: [["app-header"]],
-        decls: 2,
-        vars: 0,
-        consts: [[1, "content-container"]],
-        template: function HeaderComponent_Template(rf, ctx) {
-          if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "header");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div", 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-          }
-        },
-        styles: ["header[_ngcontent-%COMP%] {\n  background: #ebe7ec;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2hlYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG1CQUFBO0FBQ0oiLCJmaWxlIjoiaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaGVhZGVyIHtcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMjM1LDIzMSwyMzYpO1xufSJdfQ== */"]
-      });
-      /***/
-    },
-
-    /***/
-    "Sy1n":
-    /*!**********************************!*\
-      !*** ./src/app/app.component.ts ***!
-      \**********************************/
-
-    /*! exports provided: AppComponent */
-
-    /***/
-    function Sy1n(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "AppComponent", function () {
-        return AppComponent;
-      });
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _modules_core_header_header_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./modules/core/header/header.component */
-      "STPy");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "tyNb");
-      /* harmony import */
-
-
-      var _modules_core_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./modules/core/footer/footer.component */
-      "isrl");
-
-      var AppComponent = function AppComponent() {
-        _classCallCheck(this, AppComponent);
-
-        this.title = "youtube-mp3-downloader";
-      };
-
-      AppComponent.ɵfac = function AppComponent_Factory(t) {
-        return new (t || AppComponent)();
-      };
-
-      AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-        type: AppComponent,
-        selectors: [["app-root"]],
-        decls: 5,
-        vars: 0,
-        consts: [[1, "content-container"]],
-        template: function AppComponent_Template(rf, ctx) {
-          if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-header");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "main");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "router-outlet");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "app-footer");
-          }
-        },
-        directives: [_modules_core_header_header_component__WEBPACK_IMPORTED_MODULE_1__["HeaderComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _modules_core_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__["FooterComponent"]],
-        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MifQ== */"]
-      });
-      /***/
-    },
-
-    /***/
-    "UjCR":
-    /*!*****************************************************************************************************!*\
-      !*** ./src/app/modules/loan-form-reactive/pages/loan-form-reactive/loan-form-reactive.component.ts ***!
-      \*****************************************************************************************************/
-
-    /*! exports provided: googleApiWindow, defaultProjects, LoanFormReactiveComponent */
-
-    /***/
-    function UjCR(module, __webpack_exports__, __webpack_require__) {
+    function Dadq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -763,8 +206,8 @@
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "LoanFormReactiveComponent", function () {
-        return LoanFormReactiveComponent;
+      __webpack_require__.d(__webpack_exports__, "YoutubeMp3DownloaderPanelComponent", function () {
+        return YoutubeMp3DownloaderPanelComponent;
       });
       /* harmony import */
 
@@ -775,9 +218,9 @@
       /* harmony import */
 
 
-      var _shared_services_question_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ../../../shared/services/question.service */
-      "Oxbd");
+      var _shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ../../../shared/services/getVideoInfo */
+      "4HhO");
       /* harmony import */
 
 
@@ -843,9 +286,9 @@
 
       var _components_loader_loader_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ../../components/loader/loader.component */
-      "iYg1");
+      "V4+E");
 
-      function LoanFormReactiveComponent_div_9_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_11_Template(rf, ctx) {
         if (rf & 1) {
           var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
@@ -853,15 +296,15 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "mat-form-field");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "input", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "input", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "mat-error");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 11);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_div_9_Template_button_click_4_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_11_Template_button_click_4_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r6);
 
             var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
@@ -877,15 +320,15 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "mat-form-field");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](8, "input", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](8, "input", 12);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](9, "mat-error");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "button", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "button", 11);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_div_9_Template_button_click_10_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_11_Template_button_click_10_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r6);
 
             var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
@@ -907,29 +350,29 @@
         }
       }
 
-      function LoanFormReactiveComponent_tr_10_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_tr_12_Template(rf, ctx) {
         if (rf & 1) {
           var _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "mat-form-field");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](5, "input", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](5, "input", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](6, "mat-error");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 15);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_tr_10_Template_button_click_7_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_tr_12_Template_button_click_7_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r11);
 
             var i_r9 = ctx.index;
@@ -963,13 +406,13 @@
         }
       }
 
-      function LoanFormReactiveComponent_button_12_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_button_14_Template(rf, ctx) {
         if (rf & 1) {
           var _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "button", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "button", 17);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_button_12_Template_button_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_button_14_Template_button_click_0_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r13);
 
             var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
@@ -977,35 +420,35 @@
             return ctx_r12.addToSearchArray();
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "Add to search array");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " Add to search array ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         }
       }
 
-      function LoanFormReactiveComponent_div_13_div_2_tr_1_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_15_div_2_tr_1_Template(rf, ctx) {
         if (rf & 1) {
           var _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "mat-form-field");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](5, "input", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](5, "input", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](6, "mat-error");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 15);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_div_13_div_2_tr_1_Template_button_click_7_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_15_div_2_tr_1_Template_button_click_7_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r19);
 
             var i_r17 = ctx.index;
@@ -1039,21 +482,21 @@
         }
       }
 
-      function LoanFormReactiveComponent_div_13_div_2_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_15_div_2_Template(rf, ctx) {
         if (rf & 1) {
           var _r21 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](1, LoanFormReactiveComponent_div_13_div_2_tr_1_Template, 9, 2, "tr", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](1, YoutubeMp3DownloaderPanelComponent_div_15_div_2_tr_1_Template, 9, 2, "tr", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "br");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 17);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_div_13_div_2_Template_button_click_4_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_15_div_2_Template_button_click_4_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r21);
 
             var ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
@@ -1077,13 +520,13 @@
         }
       }
 
-      function LoanFormReactiveComponent_div_13_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_15_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " EDITED SEARCHES: ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, LoanFormReactiveComponent_div_13_div_2_Template, 6, 1, "div", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_15_div_2_Template, 6, 1, "div", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
@@ -1101,27 +544,7 @@
         }
       }
 
-      function LoanFormReactiveComponent_ng_container_14_div_13_ng_container_3_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-loader", 27);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
-        }
-
-        if (rf & 2) {
-          var i_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]().index;
-
-          var ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("passedUrl", ctx_r26.foundVideosArray[i_r25].iframeUrl);
-        }
-      }
-
-      function LoanFormReactiveComponent_ng_container_14_div_13_ng_container_4_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_3_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
 
@@ -1133,73 +556,119 @@
         if (rf & 2) {
           var i_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]().index;
 
+          var ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r26.foundVideosArray[i_r25].githubIframeUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeResourceUrl"]);
+        }
+      }
+
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_4_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "app-loader", 29);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, " >");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+        }
+
+        if (rf & 2) {
+          var i_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]().index;
+
           var ctx_r27 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r27.foundVideosArray[i_r25].githubIframeUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeResourceUrl"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("passedUrl", ctx_r27.foundVideosArray[i_r25].iframeUrl)("shouldStartDownload", ctx_r27.shouldStartDownload);
         }
       }
 
-      function LoanFormReactiveComponent_ng_container_14_div_13_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_5_Template(rf, ctx) {
         if (rf & 1) {
-          var _r31 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "iframe", 28);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "div", 19);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+        }
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 20);
+        if (rf & 2) {
+          var i_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]().index;
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](3, LoanFormReactiveComponent_ng_container_14_div_13_ng_container_3_Template, 2, 1, "ng-container", 5);
+          var ctx_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](4, LoanFormReactiveComponent_ng_container_14_div_13_ng_container_4_Template, 2, 1, "ng-container", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r28.foundVideosArray[i_r25].localIframeUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeResourceUrl"]);
+        }
+      }
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "a", 23);
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r33 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 19);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "div", 20);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "div", 20);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 21);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](3, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_3_Template, 2, 1, "ng-container", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](4, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_4_Template, 3, 2, "ng-container", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 24);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "button", 25);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_ng_container_14_div_13_Template_button_click_10_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r31);
-
-            var i_r25 = ctx.index;
-
-            var ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-
-            return ctx_r30.moveToIncorrectList(i_r25);
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](11, "Move To Incorrect");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](5, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_5_Template, 2, 1, "ng-container", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](12, "button", 26);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](6, "a", 24);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_ng_container_14_div_13_Template_button_click_12_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r31);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](8, "div", 21);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "div", 25);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "button", 26);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_Template_button_click_11_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r33);
 
             var i_r25 = ctx.index;
 
             var ctx_r32 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
-            return ctx_r32.deleteFound(i_r25);
+            return ctx_r32.moveToIncorrectList(i_r25);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](13, "Delete");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](12, " Move To Incorrect ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](13, "button", 27);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_Template_button_click_13_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r33);
+
+            var i_r25 = ctx.index;
+
+            var ctx_r34 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+
+            return ctx_r34.deleteFound(i_r25);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](14, "Delete");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
@@ -1217,11 +686,15 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r22.env === "local");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r22.env === "github" && ctx_r22.mode !== "instant-download");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r22.env === "github");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r22.env === "local" && ctx_r22.mode !== "instant-download");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r22.env === "local" && ctx_r22.mode === "instant-download");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
@@ -1233,19 +706,19 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", ctx_r22.foundVideosArray[i_r25].title, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r22.foundVideosArray[i_r25].title);
         }
       }
 
-      function LoanFormReactiveComponent_ng_container_14_div_14_tr_2_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_tr_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 30);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 31);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 14);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "div", 31);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "div", 32);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
@@ -1255,21 +728,21 @@
         }
 
         if (rf & 2) {
-          var i_r35 = ctx.index;
+          var i_r37 = ctx.index;
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r35);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r37);
         }
       }
 
-      function LoanFormReactiveComponent_ng_container_14_div_14_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 29);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 30);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " INCORRECT SEARCHES: ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, LoanFormReactiveComponent_ng_container_14_div_14_tr_2_Template, 4, 1, "tr", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_tr_2_Template, 4, 1, "tr", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
@@ -1287,7 +760,7 @@
         }
       }
 
-      function LoanFormReactiveComponent_ng_container_14_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_16_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
 
@@ -1297,27 +770,27 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, " FOUND VIDEOS: ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "div", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "div", 19);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "div", 19);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "div", 20);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](6, "div", 20);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](6, "div", 21);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "div", 20);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "div", 21);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8, " Searched item ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 20);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](10, " Found youtube item title ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8, "Searched item");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "div", 20);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 21);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](12, " Move/delete ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](10, "Found youtube item title");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "div", 21);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](12, "Move/delete");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
@@ -1325,9 +798,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, LoanFormReactiveComponent_ng_container_14_div_13_Template, 14, 6, "div", 21);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_Template, 15, 7, "div", 22);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, LoanFormReactiveComponent_ng_container_14_div_14_Template, 5, 1, "div", 22);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_Template, 5, 1, "div", 23);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
         }
@@ -1366,15 +839,18 @@
       }, {
         name: "youtube-downloader-310313",
         apiKey: "AIzaSyCVFuPYF1DCVTKf3GydrbcG7bY0Ws15DBw"
+      }, {
+        name: "youtube-mp3-downloader-3",
+        apiKey: "AIzaSyDvYrlBR551TYemye4-l1crGmjoFW-Tk6I"
       }];
 
-      var LoanFormReactiveComponent = /*#__PURE__*/function () {
-        function LoanFormReactiveComponent(window, _formBuilder, questionService, sanitizer, route) {
-          _classCallCheck(this, LoanFormReactiveComponent);
+      var YoutubeMp3DownloaderPanelComponent = /*#__PURE__*/function () {
+        function YoutubeMp3DownloaderPanelComponent(window, _formBuilder, getVideoInfoService, sanitizer, route) {
+          _classCallCheck(this, YoutubeMp3DownloaderPanelComponent);
 
           this.window = window;
           this._formBuilder = _formBuilder;
-          this.questionService = questionService;
+          this.getVideoInfoService = getVideoInfoService;
           this.sanitizer = sanitizer;
           this.route = route;
           this.ngUnsubscribe = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
@@ -1385,10 +861,13 @@
           this.iframeUrls = [];
           this.titlesArray = [];
           this.projects = defaultProjects;
-          this.env = localStorage.getItem("env");
+          this.shouldStartDownload = false;
+          this.env = localStorage.getItem("env"); //@ts-ignore
+
+          this.mode = localStorage.getItem("mode");
         }
 
-        _createClass(LoanFormReactiveComponent, [{
+        _createClass(YoutubeMp3DownloaderPanelComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this2 = this;
@@ -1396,9 +875,13 @@
             var _a;
 
             this.route.queryParams.subscribe(function (params) {
-              if (params['projects'] && JSON.parse(params['projects'])) {
-                _this2.projects = JSON.parse(params['projects']);
+              if (params["projects"] && JSON.parse(params["projects"])) {
+                _this2.projects = JSON.parse(params["projects"]);
               }
+            });
+            console.log({
+              env: this.env,
+              mode: this.mode
             });
             (_a = this.authenticate()) === null || _a === void 0 ? void 0 : _a.then(this.loadClient());
             this.form = this._formBuilder.group({
@@ -1419,6 +902,11 @@
           key: "searchArray",
           get: function get() {
             return this.form.get("searchArray");
+          }
+        }, {
+          key: "toggleShouldStartDownload",
+          value: function toggleShouldStartDownload() {
+            this.shouldStartDownload = !this.shouldStartDownload;
           }
         }, {
           key: "authenticate",
@@ -1442,18 +930,13 @@
         }, {
           key: "loadClient",
           value: function loadClient() {
-            var _a, _b, _c, _d;
+            var _a, _b, _c;
 
             this.window.gapi.client.setApiKey(((_a = this.projects.find(function (p) {
               return p.name === localStorage.getItem("project");
-            })) === null || _a === void 0 ? void 0 : _a.apiKey) || "AIzaSyCVFuPYF1DCVTKf3GydrbcG7bY0Ws15DBw");
-            console.log({
-              apiKey: (_b = this.projects.find(function (p) {
-                return p.name === localStorage.getItem("project");
-              })) === null || _b === void 0 ? void 0 : _b.apiKey
-            }); //a.popliauskis
+            })) === null || _a === void 0 ? void 0 : _a.apiKey) || "AIzaSyCVFuPYF1DCVTKf3GydrbcG7bY0Ws15DBw"); //a.popliauskis
 
-            return (_d = (_c = this.window.gapi.client) === null || _c === void 0 ? void 0 : _c.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")) === null || _d === void 0 ? void 0 : _d.then(function () {
+            return (_c = (_b = this.window.gapi.client) === null || _b === void 0 ? void 0 : _b.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")) === null || _c === void 0 ? void 0 : _c.then(function () {
               console.log("GAPI client loaded for API");
             }, function (err) {
               console.error("Error loading GAPI client for API", err);
@@ -1465,19 +948,10 @@
             var _this3 = this;
 
             var _loop = function _loop(i) {
-              _this3.questionService.getVideoId(_this3.form.value.searchArray[i].searchValue).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this3.ngUnsubscribe)).subscribe(function (resp) {
+              _this3.getVideoInfoService.getVideoId(_this3.form.value.searchArray[i].searchValue).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this3.ngUnsubscribe)).subscribe(function (resp) {
                 if (resp) {
-                  _this3.questionService.getVideoTitleById(resp.items[0].id.videoId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this3.ngUnsubscribe)).subscribe(function (res) {
-                    console.log({
-                      window: _this3.window.location.href
-                    });
-                    console.log({
-                      windowIncludes: _this3.window.location.href.includes("localhost")
-                    });
+                  _this3.getVideoInfoService.getVideoTitleById(resp.items[0].id.videoId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(_this3.ngUnsubscribe)).subscribe(function (res) {
                     var url = _this3.youtubeLinkFirstPart + resp.items[0].id.videoId + "&f=mp3&color=64c896&youtubeVideoId=" + resp.items[0].id.videoId;
-                    console.log({
-                      url: url
-                    });
 
                     var sanitizedUrl = _this3.sanitizer.bypassSecurityTrustResourceUrl(url);
 
@@ -1486,6 +960,7 @@
                       videoId: resp.items[0].id.videoId,
                       iframeUrl: sanitizedUrl,
                       githubIframeUrl: _this3.sanitizer.bypassSecurityTrustResourceUrl("https://loader.to/api/button/?url=" + url),
+                      localIframeUrl: _this3.sanitizer.bypassSecurityTrustResourceUrl("assets/loader.html?url=" + url),
                       searchedValue: _this3.form.value.searchArray[i].searchValue
                     });
 
@@ -1574,16 +1049,12 @@
               searchValue: [this.form.value.searchArray[i].searchValue]
             }));
             this.form.get("searchArray").removeAt(i);
-            this.foundVideosArray.splice(i, 1); // this.iframeUrls.splice(i, 1);
-            // this.titlesArray.splice(i, 1);
-
-            console.log(this.form.getRawValue());
+            this.foundVideosArray.splice(i, 1);
           }
         }, {
           key: "deleteFound",
           value: function deleteFound(i) {
-            this.foundVideosArray.splice(i, 1); // this.iframeUrls.splice(i, 1);
-            // this.titlesArray.splice(i, 1);
+            this.foundVideosArray.splice(i, 1);
           }
         }, {
           key: "deleteIncorrect",
@@ -1593,7 +1064,6 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            // prevent memory leak when component destroyed
             this.ngUnsubscribe.next();
             this.ngUnsubscribe.complete();
           }
@@ -1604,26 +1074,26 @@
           }
         }]);
 
-        return LoanFormReactiveComponent;
+        return YoutubeMp3DownloaderPanelComponent;
       }();
 
-      LoanFormReactiveComponent.ɵfac = function LoanFormReactiveComponent_Factory(t) {
-        return new (t || LoanFormReactiveComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](googleApiWindow), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_shared_services_question_service__WEBPACK_IMPORTED_MODULE_1__["QuestionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]));
+      YoutubeMp3DownloaderPanelComponent.ɵfac = function YoutubeMp3DownloaderPanelComponent_Factory(t) {
+        return new (t || YoutubeMp3DownloaderPanelComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](googleApiWindow), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__["GetVideoInfoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]));
       };
 
-      LoanFormReactiveComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({
-        type: LoanFormReactiveComponent,
-        selectors: [["app-loan-form-reactive"]],
+      YoutubeMp3DownloaderPanelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({
+        type: YoutubeMp3DownloaderPanelComponent,
+        selectors: [["app-youtube-mp3-downloader-panel"]],
         features: [_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵProvidersFeature"]([{
           provide: _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_4__["STEPPER_GLOBAL_OPTIONS"],
           useValue: {
             showError: true
           }
-        }, _shared_services_question_service__WEBPACK_IMPORTED_MODULE_1__["QuestionService"]]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵNgOnChangesFeature"]],
-        decls: 15,
-        vars: 6,
-        consts: [[1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", 2, "height", "500px!important"], ["mat-button", "", "type", "submit", 3, "click"], [4, "ngIf"], [4, "ngFor", "ngForOf"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["class", "col-6 p-0", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [3, "passedUrl"], [3, "src"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]],
-        template: function LoanFormReactiveComponent_Template(rf, ctx) {
+        }, _shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__["GetVideoInfoService"]]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵNgOnChangesFeature"]],
+        decls: 17,
+        vars: 7,
+        consts: [[1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], [2, "height", "50px", "margin-top", "15px", 3, "click"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", 2, "height", "500px !important"], ["mat-button", "", "type", "submit", 3, "click"], [4, "ngIf"], [4, "ngFor", "ngForOf"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["class", "col-6 p-0", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [3, "src"], [3, "passedUrl", "shouldStartDownload"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]],
+        template: function YoutubeMp3DownloaderPanelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
 
@@ -1631,39 +1101,49 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](3, "mat-form-field", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](3, "button", 2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](4, "textarea", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_Template_button_click_3_listener() {
+              return ctx.toggleShouldStartDownload();
+            });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](5, "mat-error");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](6, "button", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "mat-form-field", 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function LoanFormReactiveComponent_Template_button_click_6_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](6, "textarea", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](7, "mat-error");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](8, "button", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_Template_button_click_8_listener() {
               return ctx.submit();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "SUBMIT");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](9, "SUBMIT");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](8, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](10, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](9, LoanFormReactiveComponent_div_9_Template, 15, 0, "div", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](11, YoutubeMp3DownloaderPanelComponent_div_11_Template, 15, 0, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](10, LoanFormReactiveComponent_tr_10_Template, 9, 2, "tr", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](12, YoutubeMp3DownloaderPanelComponent_tr_12_Template, 9, 2, "tr", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](11, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](13, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](12, LoanFormReactiveComponent_button_12_Template, 2, 0, "button", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, YoutubeMp3DownloaderPanelComponent_button_14_Template, 2, 0, "button", 8);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, LoanFormReactiveComponent_div_13_Template, 5, 1, "div", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](15, YoutubeMp3DownloaderPanelComponent_div_15_Template, 5, 1, "div", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, LoanFormReactiveComponent_ng_container_14_Template, 15, 2, "ng-container", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](16, YoutubeMp3DownloaderPanelComponent_ng_container_16_Template, 15, 2, "ng-container", 6);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
@@ -1675,7 +1155,11 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroup", ctx.form);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" TOGGLE DOWNLOAD ALL: current value - ", ctx.shouldStartDownload, " ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](7);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx.editableSearchArray.controls.length > 0);
 
@@ -1697,108 +1181,115 @@
           }
         },
         directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatError"], _angular_material_button__WEBPACK_IMPORTED_MODULE_10__["MatButton"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormArrayName"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupName"], _components_loader_loader_component__WEBPACK_IMPORTED_MODULE_12__["LoaderComponent"]],
-        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsb2FuLWZvcm0tcmVhY3RpdmUuY29tcG9uZW50LnNjc3MifQ== */"]
+        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ5b3V0dWJlLW1wMy1kb3dubG9hZGVyLXBhbmVsLmNvbXBvbmVudC5zY3NzIn0= */"]
       });
-      LoanFormReactiveComponent.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
-        token: LoanFormReactiveComponent,
-        factory: LoanFormReactiveComponent.ɵfac,
+      YoutubeMp3DownloaderPanelComponent.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
+        token: YoutubeMp3DownloaderPanelComponent,
+        factory: YoutubeMp3DownloaderPanelComponent.ɵfac,
         providedIn: "root"
       });
       /***/
     },
 
     /***/
-    "ZAI4":
-    /*!*******************************!*\
-      !*** ./src/app/app.module.ts ***!
-      \*******************************/
+    "FpXt":
+    /*!*************************************************!*\
+      !*** ./src/app/modules/shared/shared.module.ts ***!
+      \*************************************************/
 
-    /*! exports provided: AppModule */
+    /*! exports provided: SharedModule */
 
     /***/
-    function ZAI4(module, __webpack_exports__, __webpack_require__) {
+    function FpXt(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "AppModule", function () {
-        return AppModule;
+      __webpack_require__.d(__webpack_exports__, "SharedModule", function () {
+        return SharedModule;
       });
       /* harmony import */
 
 
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "jhN1");
+      var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
       /* harmony import */
 
 
-      var _modules_core_core_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./modules/core/core.module */
-      "6ZYd");
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/forms */
+      "3Pt+");
       /* harmony import */
 
 
-      var _modules_shared_shared_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./modules/shared/shared.module */
-      "FpXt");
+      var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/stepper */
+      "xHqg");
       /* harmony import */
 
 
-      var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./app-routing.module */
-      "vY5A");
+      var _angular_material_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/material/input */
+      "qFsG");
       /* harmony import */
 
 
-      var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./app.component */
-      "Sy1n");
+      var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/material/button */
+      "bTqV");
       /* harmony import */
 
 
-      var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! @angular/platform-browser/animations */
-      "R1ws");
+      var _angular_material_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/material/list */
+      "MutI");
       /* harmony import */
 
 
-      var _modules_loan_form_reactive_pages_loan_form_reactive_loan_form_reactive_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ./modules/loan-form-reactive/pages/loan-form-reactive/loan-form-reactive.component */
-      "UjCR");
+      var _angular_material_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/material/select */
+      "d3UM");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @angular/material/form-field */
+      "kmnG");
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/common/http */
+      "tk/3");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
-      var AppModule = function AppModule() {
-        _classCallCheck(this, AppModule);
+      var SharedModule = function SharedModule() {
+        _classCallCheck(this, SharedModule);
       };
 
-      AppModule.ɵfac = function AppModule_Factory(t) {
-        return new (t || AppModule)();
+      SharedModule.ɵfac = function SharedModule_Factory(t) {
+        return new (t || SharedModule)();
       };
 
-      AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({
-        type: AppModule,
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+      SharedModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({
+        type: SharedModule
       });
-      AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({
-        providers: [{
-          provide: _modules_loan_form_reactive_pages_loan_form_reactive_loan_form_reactive_component__WEBPACK_IMPORTED_MODULE_6__["googleApiWindow"],
-          useValue: window
-        }],
-        imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _modules_core_core_module__WEBPACK_IMPORTED_MODULE_1__["CoreModule"], _modules_shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"]]]
+      SharedModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({
+        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](AppModule, {
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _modules_core_core_module__WEBPACK_IMPORTED_MODULE_1__["CoreModule"], _modules_shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"]]
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](SharedModule, {
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]],
+          exports: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]]
         });
       })();
       /***/
@@ -1806,54 +1297,82 @@
     },
 
     /***/
-    "dLIH":
-    /*!*********************************************************!*\
-      !*** ./src/app/modules/shared/classes/question-base.ts ***!
-      \*********************************************************/
+    "Sy1n":
+    /*!**********************************!*\
+      !*** ./src/app/app.component.ts ***!
+      \**********************************/
 
-    /*! exports provided: QuestionBase */
+    /*! exports provided: AppComponent */
 
     /***/
-    function dLIH(module, __webpack_exports__, __webpack_require__) {
+    function Sy1n(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "QuestionBase", function () {
-        return QuestionBase;
+      __webpack_require__.d(__webpack_exports__, "AppComponent", function () {
+        return AppComponent;
       });
+      /* harmony import */
 
-      var QuestionBase = function QuestionBase() {
-        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-        _classCallCheck(this, QuestionBase);
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
 
-        this.value = options.value;
-        this.key = options.key || "";
-        this.placeholder = options.placeholder || "";
-        this.label = options.label || "";
-        this.required = !!options.required;
-        this.order = options.order === undefined ? 1 : options.order;
-        this.controlType = options.controlType || "";
-        this.type = options.type || "";
-        this.options = options.options || [];
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
+
+      var AppComponent = function AppComponent() {
+        _classCallCheck(this, AppComponent);
+
+        this.title = "youtube-mp3-downloader";
       };
-      /***/
 
+      AppComponent.ɵfac = function AppComponent_Factory(t) {
+        return new (t || AppComponent)();
+      };
+
+      AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: AppComponent,
+        selectors: [["app-root"]],
+        decls: 3,
+        vars: 0,
+        consts: [[1, "content-container"]],
+        template: function AppComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "router-outlet");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+        },
+        directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]],
+        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MifQ== */"]
+      });
+      /***/
     },
 
     /***/
-    "iYg1":
-    /*!**********************************************************************************!*\
-      !*** ./src/app/modules/loan-form-reactive/components/loader/loader.component.ts ***!
-      \**********************************************************************************/
+    "V4+E":
+    /*!********************************************************************************************!*\
+      !*** ./src/app/modules/youtube-mp3-downloader-panel/components/loader/loader.component.ts ***!
+      \********************************************************************************************/
 
     /*! exports provided: LoaderComponent */
 
     /***/
-    function iYg1(module, __webpack_exports__, __webpack_require__) {
+    function V4E(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1901,43 +1420,63 @@
       }
 
       var LoaderComponent = /*#__PURE__*/function () {
-        function LoaderComponent(elementRef) {
+        function LoaderComponent() {
           _classCallCheck(this, LoaderComponent);
 
-          this.elementRef = elementRef;
-          this.downloadUrl = ""; //do nothing
+          this.shouldStartDownload = false;
+          this.downloadUrl = "";
         }
 
         _createClass(LoaderComponent, [{
+          key: "onMessage",
+          value: function onMessage(event) {
+            console.log({
+              event: event
+            });
+
+            if (event.data.shouldStartDownload) {
+              this.download();
+            }
+          } // constructor() {
+          // 	if (window.addEventListener) {
+          // 		window.addEventListener("message", this.download.bind(this), false);
+          // 	} else {
+          // 		(<any>window).attachEvent("onmessage", this.download.bind(this));
+          // 	}
+          // }
+
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             //@ts-ignore
-            console.log({
-              url: this.passedUrl.changingThisBreaksApplicationSecurity
-            }); //@ts-ignore
-
             this.link_now = new URL(this.passedUrl.changingThisBreaksApplicationSecurity);
             this.youtubeVideoId = this.link_now.searchParams.get("youtubeVideoId");
             this.format = this.link_now.searchParams.get("f");
-            this.buttonTitle = this.link_now;
-            this.download();
+            this.buttonTitle = JSON.stringify(this.link_now);
+            console.log({
+              shouldStartDownload: this.shouldStartDownload
+            });
+          }
+        }, {
+          key: "ngOnChanges",
+          value: function ngOnChanges(changes) {
+            if (changes.shouldStartDownload.currentValue && !changes.shouldStartDownload.previousValue) {
+              this.download();
+            }
           }
         }, {
           key: "download",
           value: function download() {
             var _this5 = this;
 
-            fetch("https://loader.to/ajax/download.php?button=1&start=" + 1 + "&end=" + 1 + "&format=" + this.format + "&url=" + encodeURIComponent(this.link_now), {
+            fetch("https://loader.to/ajax/download.php?button=1&start=1&end=1&format=" + this.format + "&url=" + //@ts-ignore
+            encodeURIComponent(this.link_now), {
               headers: {
-                'Accept': 'application/json'
+                Accept: "application/json"
               }
             }).then(function (response) {
               return response.json();
             }).then(function (response) {
-              console.log({
-                response: response
-              });
-
               _this5.showProgressAndSetDownloadUrl(response.id);
             });
           }
@@ -1948,14 +1487,11 @@
 
             fetch("https://loader.to/ajax/progress.php?id=" + i, {
               headers: {
-                'Accept': 'application/json'
+                Accept: "application/json"
               }
             }).then(function (response) {
               return response.json();
             }).then(function (response) {
-              console.log({
-                response: response
-              });
               _this6.progress = response.progress / 10;
 
               if (response.download_url != null && response.success == 1) {
@@ -1969,10 +1505,9 @@
 
 
               setTimeout(_this6.showProgressAndSetDownloadUrl(i), 750);
-            })["catch"](function (e) {
-              return (//@ts-ignore
-                setTimeout(_this6.showProgressAndSetDownloadUrl(i), 750)
-              );
+            })["catch"](function (e //@ts-ignore
+            ) {
+              return setTimeout(_this6.showProgressAndSetDownloadUrl(i), 750);
             });
           }
         }]);
@@ -1981,15 +1516,24 @@
       }();
 
       LoaderComponent.ɵfac = function LoaderComponent_Factory(t) {
-        return new (t || LoaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]));
+        return new (t || LoaderComponent)();
       };
 
       LoaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: LoaderComponent,
         selectors: [["app-loader"]],
-        inputs: {
-          passedUrl: "passedUrl"
+        hostBindings: function LoaderComponent_HostBindings(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("message", function LoaderComponent_message_HostBindingHandler($event) {
+              return ctx.onMessage($event);
+            }, false, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresolveWindow"]);
+          }
         },
+        inputs: {
+          passedUrl: "passedUrl",
+          shouldStartDownload: "shouldStartDownload"
+        },
+        features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]],
         decls: 4,
         vars: 2,
         consts: [["id", "downloadButton", 2, "color", "red"], [4, "ngIf"], ["id", "download", 2, "margin", "0 auto", "display", "flex", "align-self", "center", 3, "id", "href"]],
@@ -2011,7 +1555,7 @@
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" Download progress ", ctx.progress || 0, " / 100% ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Download progress ", ctx.progress || 0, " / 100%");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -2019,156 +1563,108 @@
           }
         },
         directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"]],
-        styles: ["html[_ngcontent-%COMP%], body[_ngcontent-%COMP%] {\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  overflow: hidden;\n}\n\nbody[_ngcontent-%COMP%] {\n  font-family: \"Open Sans\", sans-serif;\n  color: black;\n  font-size: 24px;\n}\n\n@media (max-height: 150px) and (max-width: 400px) {\n  body[_ngcontent-%COMP%] {\n    font-size: 18px;\n  }\n}\n\n@media (max-width: 200px) {\n  body[_ngcontent-%COMP%] {\n    font-size: 14px;\n  }\n\n  svg[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n\nbutton[_ngcontent-%COMP%] {\n  font-size: 1em;\n  border-radius: 2px;\n  border: 0;\n  font-family: \"Open Sans\", sans-serif;\n  height: 100%;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  cursor: pointer;\n}\n\n.progress-button[_ngcontent-%COMP%] {\n  display: inline-block;\n  font-size: 1em;\n  color: #fff !important;\n  text-decoration: none !important;\n  line-height: 1;\n  overflow: hidden;\n  position: relative;\n  text-align: center;\n  width: 100%;\n  height: 100%;\n  box-shadow: 0 1px 1px #ccc;\n  border-radius: 2px;\n  cursor: pointer;\n  background-color: #64c896;\n}\n\n#downloadButton[_ngcontent-%COMP%]:hover   .progress-button[_ngcontent-%COMP%] {\n  filter: brightness(95%);\n}\n\n.progress-button.in-progress[_ngcontent-%COMP%], .progress-button.finished[_ngcontent-%COMP%] {\n  color: transparent !important;\n}\n\n.progress-button.in-progress[_ngcontent-%COMP%]:after, .progress-button.finished[_ngcontent-%COMP%]:after {\n  position: absolute;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  top: 0;\n  padding-top: inherit;\n  color: #fff !important;\n  left: 0;\n}\n\n.progress-button.in-progress[_ngcontent-%COMP%]:after {\n  content: attr(data-loading);\n}\n\n.progress-button.finished[_ngcontent-%COMP%]:after {\n  content: attr(data-finished);\n}\n\n.progress-button[_ngcontent-%COMP%]   .tz-bar[_ngcontent-%COMP%] {\n  background-color: #4e9672;\n  height: 3px;\n  bottom: 0;\n  left: 0;\n  width: 0;\n  position: absolute;\n  z-index: 1;\n  border-radius: 0 0 2px 2px;\n  transition: width 0.5s, height 0.5s;\n}\n\n.progress-button[_ngcontent-%COMP%]   .tz-bar.background-horizontal[_ngcontent-%COMP%] {\n  height: 100%;\n  border-radius: 2px;\n}\n\n.progress-button[_ngcontent-%COMP%]   .tz-bar.background-vertical[_ngcontent-%COMP%] {\n  height: 0;\n  top: 0;\n  width: 100%;\n  border-radius: 2px;\n}\n\n.buttonTitle[_ngcontent-%COMP%] {\n  font-size: 0.5em;\n  margin-top: 4px;\n}\n\n#container[_ngcontent-%COMP%] {\n  height: 100%;\n  text-align: center;\n}\n\n#container[_ngcontent-%COMP%]:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  height: 100%;\n}\n\n#percentageText[_ngcontent-%COMP%] {\n  width: 95%;\n  display: inline-block;\n  position: relative;\n  vertical-align: middle;\n  z-index: 3;\n}\n\n.header[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  z-index: 1;\n  width: 100%;\n  background-color: #f1f1f1;\n}\n\n.progress-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 4px;\n  background: #ccc;\n}\n\n.progress-bar[_ngcontent-%COMP%] {\n  height: 4px;\n  background: #4caf50;\n  width: 0%;\n}\n\n.grecaptcha-badge[_ngcontent-%COMP%] {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL2xvYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTs7RUFFQyxZQUFBO0VBQ0EsVUFBQTtFQUNBLFNBQUE7RUFDQSxnQkFBQTtBQUFEOztBQUdBO0VBQ0Msb0NBQUE7RUFDQSxZQUFBO0VBQ0EsZUFBQTtBQUFEOztBQUdBO0VBQ0M7SUFDQyxlQUFBO0VBQUE7QUFDRjs7QUFHQTtFQUNDO0lBQ0MsZUFBQTtFQURBOztFQUlEO0lBQ0MsYUFBQTtFQURBO0FBQ0Y7O0FBSUE7RUFDQyxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0Esb0NBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0VBQ0EsZUFBQTtBQUZEOztBQUtBO0VBQ0MscUJBQUE7RUFDQSxjQUFBO0VBQ0Esc0JBQUE7RUFDQSxnQ0FBQTtFQUNBLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLDBCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7QUFGRDs7QUFLQTtFQUNDLHVCQUFBO0FBRkQ7O0FBS0E7O0VBRUMsNkJBQUE7QUFGRDs7QUFLQTs7RUFFQyxrQkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLG9CQUFBO0VBQ0Esc0JBQUE7RUFDQSxPQUFBO0FBRkQ7O0FBS0E7RUFDQywyQkFBQTtBQUZEOztBQUtBO0VBQ0MsNEJBQUE7QUFGRDs7QUFLQTtFQUNDLHlCQUFBO0VBQ0EsV0FBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLDBCQUFBO0VBR0EsbUNBQUE7QUFGRDs7QUFLQTtFQUNDLFlBQUE7RUFDQSxrQkFBQTtBQUZEOztBQUtBO0VBQ0MsU0FBQTtFQUNBLE1BQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUFGRDs7QUFLQTtFQUNDLGdCQUFBO0VBQ0EsZUFBQTtBQUZEOztBQUtBO0VBQ0MsWUFBQTtFQUNBLGtCQUFBO0FBRkQ7O0FBS0E7RUFDQyxXQUFBO0VBQ0EscUJBQUE7RUFDQSxzQkFBQTtFQUNBLFlBQUE7QUFGRDs7QUFLQTtFQUNDLFVBQUE7RUFDQSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxVQUFBO0FBRkQ7O0FBS0E7RUFDQyxlQUFBO0VBQ0EsTUFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EseUJBQUE7QUFGRDs7QUFLQTtFQUNDLFdBQUE7RUFDQSxXQUFBO0VBQ0EsZ0JBQUE7QUFGRDs7QUFLQTtFQUNDLFdBQUE7RUFDQSxtQkFBQTtFQUNBLFNBQUE7QUFGRDs7QUFLQTtFQUNDLGtCQUFBO0FBRkQiLCJmaWxlIjoibG9hZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5odG1sLFxuYm9keSB7XG5cdGhlaWdodDogMTAwJTtcblx0cGFkZGluZzogMDtcblx0bWFyZ2luOiAwO1xuXHRvdmVyZmxvdzogaGlkZGVuO1xufVxuXG5ib2R5IHtcblx0Zm9udC1mYW1pbHk6ICdPcGVuIFNhbnMnLCBzYW5zLXNlcmlmO1xuXHRjb2xvcjogYmxhY2s7XG5cdGZvbnQtc2l6ZTogMjRweDtcbn1cblxuQG1lZGlhIChtYXgtaGVpZ2h0OjE1MHB4KSBhbmQgKG1heC13aWR0aDo0MDBweCkge1xuXHRib2R5IHtcblx0XHRmb250LXNpemU6IDE4cHg7XG5cdH1cbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6MjAwcHgpIHtcblx0Ym9keSB7XG5cdFx0Zm9udC1zaXplOiAxNHB4O1xuXHR9XG5cblx0c3ZnIHtcblx0XHRkaXNwbGF5OiBub25lO1xuXHR9XG59XG5cbmJ1dHRvbiB7XG5cdGZvbnQtc2l6ZTogMWVtO1xuXHRib3JkZXItcmFkaXVzOiAycHg7XG5cdGJvcmRlcjogMDtcblx0Zm9udC1mYW1pbHk6ICdPcGVuIFNhbnMnLCBzYW5zLXNlcmlmO1xuXHRoZWlnaHQ6IDEwMCU7XG5cdHdpZHRoOiAxMDAlO1xuXHRwYWRkaW5nOiAwO1xuXHRtYXJnaW46IDA7XG5cdGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnByb2dyZXNzLWJ1dHRvbiB7XG5cdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0Zm9udC1zaXplOiAxZW07XG5cdGNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG5cdHRleHQtZGVjb3JhdGlvbjogbm9uZSAhaW1wb3J0YW50O1xuXHRsaW5lLWhlaWdodDogMTtcblx0b3ZlcmZsb3c6IGhpZGRlbjtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG5cdHdpZHRoOiAxMDAlO1xuXHRoZWlnaHQ6IDEwMCU7XG5cdGJveC1zaGFkb3c6IDAgMXB4IDFweCAjY2NjO1xuXHRib3JkZXItcmFkaXVzOiAycHg7XG5cdGN1cnNvcjogcG9pbnRlcjtcblx0YmFja2dyb3VuZC1jb2xvcjogIzY0Yzg5Njtcbn1cblxuI2Rvd25sb2FkQnV0dG9uOmhvdmVyIC5wcm9ncmVzcy1idXR0b24ge1xuXHRmaWx0ZXI6IGJyaWdodG5lc3MoOTUlKTtcbn1cblxuLnByb2dyZXNzLWJ1dHRvbi5pbi1wcm9ncmVzcyxcbi5wcm9ncmVzcy1idXR0b24uZmluaXNoZWQge1xuXHRjb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cblxuLnByb2dyZXNzLWJ1dHRvbi5pbi1wcm9ncmVzczphZnRlcixcbi5wcm9ncmVzcy1idXR0b24uZmluaXNoZWQ6YWZ0ZXIge1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHotaW5kZXg6IDI7XG5cdHdpZHRoOiAxMDAlO1xuXHRoZWlnaHQ6IDEwMCU7XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcblx0dG9wOiAwO1xuXHRwYWRkaW5nLXRvcDogaW5oZXJpdDtcblx0Y29sb3I6ICNmZmYgIWltcG9ydGFudDtcblx0bGVmdDogMDtcbn1cblxuLnByb2dyZXNzLWJ1dHRvbi5pbi1wcm9ncmVzczphZnRlciB7XG5cdGNvbnRlbnQ6IGF0dHIoZGF0YS1sb2FkaW5nKTtcbn1cblxuLnByb2dyZXNzLWJ1dHRvbi5maW5pc2hlZDphZnRlciB7XG5cdGNvbnRlbnQ6IGF0dHIoZGF0YS1maW5pc2hlZCk7XG59XG5cbi5wcm9ncmVzcy1idXR0b24gLnR6LWJhciB7XG5cdGJhY2tncm91bmQtY29sb3I6ICM0ZTk2NzI7XG5cdGhlaWdodDogM3B4O1xuXHRib3R0b206IDA7XG5cdGxlZnQ6IDA7XG5cdHdpZHRoOiAwO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHotaW5kZXg6IDE7XG5cdGJvcmRlci1yYWRpdXM6IDAgMCAycHggMnB4O1xuXHQtd2Via2l0LXRyYW5zaXRpb246IHdpZHRoIDAuNXMsIGhlaWdodCAwLjVzO1xuXHQtbW96LXRyYW5zaXRpb246IHdpZHRoIDAuNXMsIGhlaWdodCAwLjVzO1xuXHR0cmFuc2l0aW9uOiB3aWR0aCAwLjVzLCBoZWlnaHQgMC41cztcbn1cblxuLnByb2dyZXNzLWJ1dHRvbiAudHotYmFyLmJhY2tncm91bmQtaG9yaXpvbnRhbCB7XG5cdGhlaWdodDogMTAwJTtcblx0Ym9yZGVyLXJhZGl1czogMnB4O1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uIC50ei1iYXIuYmFja2dyb3VuZC12ZXJ0aWNhbCB7XG5cdGhlaWdodDogMDtcblx0dG9wOiAwO1xuXHR3aWR0aDogMTAwJTtcblx0Ym9yZGVyLXJhZGl1czogMnB4O1xufVxuXG4uYnV0dG9uVGl0bGUge1xuXHRmb250LXNpemU6IDAuNWVtO1xuXHRtYXJnaW4tdG9wOiA0cHg7XG59XG5cbiNjb250YWluZXIge1xuXHRoZWlnaHQ6IDEwMCU7XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuI2NvbnRhaW5lcjpiZWZvcmUge1xuXHRjb250ZW50OiAnJztcblx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXHR2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuXHRoZWlnaHQ6IDEwMCU7XG59XG5cbiNwZXJjZW50YWdlVGV4dCB7XG5cdHdpZHRoOiA5NSU7XG5cdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHR2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuXHR6LWluZGV4OiAzO1xufVxuXG4uaGVhZGVyIHtcblx0cG9zaXRpb246IGZpeGVkO1xuXHR0b3A6IDA7XG5cdHotaW5kZXg6IDE7XG5cdHdpZHRoOiAxMDAlO1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiAjZjFmMWYxO1xufVxuXG4ucHJvZ3Jlc3MtY29udGFpbmVyIHtcblx0d2lkdGg6IDEwMCU7XG5cdGhlaWdodDogNHB4O1xuXHRiYWNrZ3JvdW5kOiAjY2NjO1xufVxuXG4ucHJvZ3Jlc3MtYmFyIHtcblx0aGVpZ2h0OiA0cHg7XG5cdGJhY2tncm91bmQ6ICM0Y2FmNTA7XG5cdHdpZHRoOiAwJTtcbn1cblxuLmdyZWNhcHRjaGEtYmFkZ2Uge1xuXHR2aXNpYmlsaXR5OiBoaWRkZW47XG59XG4iXX0= */"]
+        styles: ["html[_ngcontent-%COMP%], body[_ngcontent-%COMP%] {\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  overflow: hidden;\n}\n\nbody[_ngcontent-%COMP%] {\n  font-family: \"Open Sans\", sans-serif;\n  color: black;\n  font-size: 24px;\n}\n\n@media (max-height: 150px) and (max-width: 400px) {\n  body[_ngcontent-%COMP%] {\n    font-size: 18px;\n  }\n}\n\n@media (max-width: 200px) {\n  body[_ngcontent-%COMP%] {\n    font-size: 14px;\n  }\n\n  svg[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n\nbutton[_ngcontent-%COMP%] {\n  font-size: 1em;\n  border-radius: 2px;\n  border: 0;\n  font-family: \"Open Sans\", sans-serif;\n  height: 100%;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  cursor: pointer;\n}\n\n.progress-button[_ngcontent-%COMP%] {\n  display: inline-block;\n  font-size: 1em;\n  color: #fff !important;\n  text-decoration: none !important;\n  line-height: 1;\n  overflow: hidden;\n  position: relative;\n  text-align: center;\n  width: 100%;\n  height: 100%;\n  box-shadow: 0 1px 1px #ccc;\n  border-radius: 2px;\n  cursor: pointer;\n  background-color: #64c896;\n}\n\n#downloadButton[_ngcontent-%COMP%]:hover   .progress-button[_ngcontent-%COMP%] {\n  filter: brightness(95%);\n}\n\n.progress-button.in-progress[_ngcontent-%COMP%], .progress-button.finished[_ngcontent-%COMP%] {\n  color: transparent !important;\n}\n\n.progress-button.in-progress[_ngcontent-%COMP%]:after, .progress-button.finished[_ngcontent-%COMP%]:after {\n  position: absolute;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  top: 0;\n  padding-top: inherit;\n  color: #fff !important;\n  left: 0;\n}\n\n.progress-button.in-progress[_ngcontent-%COMP%]:after {\n  content: attr(data-loading);\n}\n\n.progress-button.finished[_ngcontent-%COMP%]:after {\n  content: attr(data-finished);\n}\n\n.progress-button[_ngcontent-%COMP%]   .tz-bar[_ngcontent-%COMP%] {\n  background-color: #4e9672;\n  height: 3px;\n  bottom: 0;\n  left: 0;\n  width: 0;\n  position: absolute;\n  z-index: 1;\n  border-radius: 0 0 2px 2px;\n  transition: width 0.5s, height 0.5s;\n}\n\n.progress-button[_ngcontent-%COMP%]   .tz-bar.background-horizontal[_ngcontent-%COMP%] {\n  height: 100%;\n  border-radius: 2px;\n}\n\n.progress-button[_ngcontent-%COMP%]   .tz-bar.background-vertical[_ngcontent-%COMP%] {\n  height: 0;\n  top: 0;\n  width: 100%;\n  border-radius: 2px;\n}\n\n.buttonTitle[_ngcontent-%COMP%] {\n  font-size: 0.5em;\n  margin-top: 4px;\n}\n\n#container[_ngcontent-%COMP%] {\n  height: 100%;\n  text-align: center;\n}\n\n#container[_ngcontent-%COMP%]:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  height: 100%;\n}\n\n#percentageText[_ngcontent-%COMP%] {\n  width: 95%;\n  display: inline-block;\n  position: relative;\n  vertical-align: middle;\n  z-index: 3;\n}\n\n.header[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  z-index: 1;\n  width: 100%;\n  background-color: #f1f1f1;\n}\n\n.progress-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 4px;\n  background: #ccc;\n}\n\n.progress-bar[_ngcontent-%COMP%] {\n  height: 4px;\n  background: #4caf50;\n  width: 0%;\n}\n\n.grecaptcha-badge[_ngcontent-%COMP%] {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL2xvYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFQyxZQUFBO0VBQ0EsVUFBQTtFQUNBLFNBQUE7RUFDQSxnQkFBQTtBQUNEOztBQUVBO0VBQ0Msb0NBQUE7RUFDQSxZQUFBO0VBQ0EsZUFBQTtBQUNEOztBQUVBO0VBQ0M7SUFDQyxlQUFBO0VBQ0E7QUFDRjs7QUFFQTtFQUNDO0lBQ0MsZUFBQTtFQUFBOztFQUdEO0lBQ0MsYUFBQTtFQUFBO0FBQ0Y7O0FBR0E7RUFDQyxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0Esb0NBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0VBQ0EsZUFBQTtBQUREOztBQUlBO0VBQ0MscUJBQUE7RUFDQSxjQUFBO0VBQ0Esc0JBQUE7RUFDQSxnQ0FBQTtFQUNBLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLDBCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7QUFERDs7QUFJQTtFQUNDLHVCQUFBO0FBREQ7O0FBSUE7O0VBRUMsNkJBQUE7QUFERDs7QUFJQTs7RUFFQyxrQkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLG9CQUFBO0VBQ0Esc0JBQUE7RUFDQSxPQUFBO0FBREQ7O0FBSUE7RUFDQywyQkFBQTtBQUREOztBQUlBO0VBQ0MsNEJBQUE7QUFERDs7QUFJQTtFQUNDLHlCQUFBO0VBQ0EsV0FBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLDBCQUFBO0VBR0EsbUNBQUE7QUFERDs7QUFJQTtFQUNDLFlBQUE7RUFDQSxrQkFBQTtBQUREOztBQUlBO0VBQ0MsU0FBQTtFQUNBLE1BQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUFERDs7QUFJQTtFQUNDLGdCQUFBO0VBQ0EsZUFBQTtBQUREOztBQUlBO0VBQ0MsWUFBQTtFQUNBLGtCQUFBO0FBREQ7O0FBSUE7RUFDQyxXQUFBO0VBQ0EscUJBQUE7RUFDQSxzQkFBQTtFQUNBLFlBQUE7QUFERDs7QUFJQTtFQUNDLFVBQUE7RUFDQSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxVQUFBO0FBREQ7O0FBSUE7RUFDQyxlQUFBO0VBQ0EsTUFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EseUJBQUE7QUFERDs7QUFJQTtFQUNDLFdBQUE7RUFDQSxXQUFBO0VBQ0EsZ0JBQUE7QUFERDs7QUFJQTtFQUNDLFdBQUE7RUFDQSxtQkFBQTtFQUNBLFNBQUE7QUFERDs7QUFJQTtFQUNDLGtCQUFBO0FBREQiLCJmaWxlIjoibG9hZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaHRtbCxcbmJvZHkge1xuXHRoZWlnaHQ6IDEwMCU7XG5cdHBhZGRpbmc6IDA7XG5cdG1hcmdpbjogMDtcblx0b3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuYm9keSB7XG5cdGZvbnQtZmFtaWx5OiBcIk9wZW4gU2Fuc1wiLCBzYW5zLXNlcmlmO1xuXHRjb2xvcjogYmxhY2s7XG5cdGZvbnQtc2l6ZTogMjRweDtcbn1cblxuQG1lZGlhIChtYXgtaGVpZ2h0OiAxNTBweCkgYW5kIChtYXgtd2lkdGg6IDQwMHB4KSB7XG5cdGJvZHkge1xuXHRcdGZvbnQtc2l6ZTogMThweDtcblx0fVxufVxuXG5AbWVkaWEgKG1heC13aWR0aDogMjAwcHgpIHtcblx0Ym9keSB7XG5cdFx0Zm9udC1zaXplOiAxNHB4O1xuXHR9XG5cblx0c3ZnIHtcblx0XHRkaXNwbGF5OiBub25lO1xuXHR9XG59XG5cbmJ1dHRvbiB7XG5cdGZvbnQtc2l6ZTogMWVtO1xuXHRib3JkZXItcmFkaXVzOiAycHg7XG5cdGJvcmRlcjogMDtcblx0Zm9udC1mYW1pbHk6IFwiT3BlbiBTYW5zXCIsIHNhbnMtc2VyaWY7XG5cdGhlaWdodDogMTAwJTtcblx0d2lkdGg6IDEwMCU7XG5cdHBhZGRpbmc6IDA7XG5cdG1hcmdpbjogMDtcblx0Y3Vyc29yOiBwb2ludGVyO1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uIHtcblx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXHRmb250LXNpemU6IDFlbTtcblx0Y29sb3I6ICNmZmYgIWltcG9ydGFudDtcblx0dGV4dC1kZWNvcmF0aW9uOiBub25lICFpbXBvcnRhbnQ7XG5cdGxpbmUtaGVpZ2h0OiAxO1xuXHRvdmVyZmxvdzogaGlkZGVuO1xuXHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcblx0d2lkdGg6IDEwMCU7XG5cdGhlaWdodDogMTAwJTtcblx0Ym94LXNoYWRvdzogMCAxcHggMXB4ICNjY2M7XG5cdGJvcmRlci1yYWRpdXM6IDJweDtcblx0Y3Vyc29yOiBwb2ludGVyO1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiAjNjRjODk2O1xufVxuXG4jZG93bmxvYWRCdXR0b246aG92ZXIgLnByb2dyZXNzLWJ1dHRvbiB7XG5cdGZpbHRlcjogYnJpZ2h0bmVzcyg5NSUpO1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uLmluLXByb2dyZXNzLFxuLnByb2dyZXNzLWJ1dHRvbi5maW5pc2hlZCB7XG5cdGNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uLmluLXByb2dyZXNzOmFmdGVyLFxuLnByb2dyZXNzLWJ1dHRvbi5maW5pc2hlZDphZnRlciB7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0ei1pbmRleDogMjtcblx0d2lkdGg6IDEwMCU7XG5cdGhlaWdodDogMTAwJTtcblx0dGV4dC1hbGlnbjogY2VudGVyO1xuXHR0b3A6IDA7XG5cdHBhZGRpbmctdG9wOiBpbmhlcml0O1xuXHRjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuXHRsZWZ0OiAwO1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uLmluLXByb2dyZXNzOmFmdGVyIHtcblx0Y29udGVudDogYXR0cihkYXRhLWxvYWRpbmcpO1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uLmZpbmlzaGVkOmFmdGVyIHtcblx0Y29udGVudDogYXR0cihkYXRhLWZpbmlzaGVkKTtcbn1cblxuLnByb2dyZXNzLWJ1dHRvbiAudHotYmFyIHtcblx0YmFja2dyb3VuZC1jb2xvcjogIzRlOTY3Mjtcblx0aGVpZ2h0OiAzcHg7XG5cdGJvdHRvbTogMDtcblx0bGVmdDogMDtcblx0d2lkdGg6IDA7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0ei1pbmRleDogMTtcblx0Ym9yZGVyLXJhZGl1czogMCAwIDJweCAycHg7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogd2lkdGggMC41cywgaGVpZ2h0IDAuNXM7XG5cdC1tb3otdHJhbnNpdGlvbjogd2lkdGggMC41cywgaGVpZ2h0IDAuNXM7XG5cdHRyYW5zaXRpb246IHdpZHRoIDAuNXMsIGhlaWdodCAwLjVzO1xufVxuXG4ucHJvZ3Jlc3MtYnV0dG9uIC50ei1iYXIuYmFja2dyb3VuZC1ob3Jpem9udGFsIHtcblx0aGVpZ2h0OiAxMDAlO1xuXHRib3JkZXItcmFkaXVzOiAycHg7XG59XG5cbi5wcm9ncmVzcy1idXR0b24gLnR6LWJhci5iYWNrZ3JvdW5kLXZlcnRpY2FsIHtcblx0aGVpZ2h0OiAwO1xuXHR0b3A6IDA7XG5cdHdpZHRoOiAxMDAlO1xuXHRib3JkZXItcmFkaXVzOiAycHg7XG59XG5cbi5idXR0b25UaXRsZSB7XG5cdGZvbnQtc2l6ZTogMC41ZW07XG5cdG1hcmdpbi10b3A6IDRweDtcbn1cblxuI2NvbnRhaW5lciB7XG5cdGhlaWdodDogMTAwJTtcblx0dGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4jY29udGFpbmVyOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXCI7XG5cdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0dmVydGljYWwtYWxpZ246IG1pZGRsZTtcblx0aGVpZ2h0OiAxMDAlO1xufVxuXG4jcGVyY2VudGFnZVRleHQge1xuXHR3aWR0aDogOTUlO1xuXHRkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0dmVydGljYWwtYWxpZ246IG1pZGRsZTtcblx0ei1pbmRleDogMztcbn1cblxuLmhlYWRlciB7XG5cdHBvc2l0aW9uOiBmaXhlZDtcblx0dG9wOiAwO1xuXHR6LWluZGV4OiAxO1xuXHR3aWR0aDogMTAwJTtcblx0YmFja2dyb3VuZC1jb2xvcjogI2YxZjFmMTtcbn1cblxuLnByb2dyZXNzLWNvbnRhaW5lciB7XG5cdHdpZHRoOiAxMDAlO1xuXHRoZWlnaHQ6IDRweDtcblx0YmFja2dyb3VuZDogI2NjYztcbn1cblxuLnByb2dyZXNzLWJhciB7XG5cdGhlaWdodDogNHB4O1xuXHRiYWNrZ3JvdW5kOiAjNGNhZjUwO1xuXHR3aWR0aDogMCU7XG59XG5cbi5ncmVjYXB0Y2hhLWJhZGdlIHtcblx0dmlzaWJpbGl0eTogaGlkZGVuO1xufVxuIl19 */"]
       });
       /***/
     },
 
     /***/
-    "isrl":
-    /*!*********************************************************!*\
-      !*** ./src/app/modules/core/footer/footer.component.ts ***!
-      \*********************************************************/
+    "ZAI4":
+    /*!*******************************!*\
+      !*** ./src/app/app.module.ts ***!
+      \*******************************/
 
-    /*! exports provided: FooterComponent */
+    /*! exports provided: AppModule */
 
     /***/
-    function isrl(module, __webpack_exports__, __webpack_require__) {
+    function ZAI4(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "FooterComponent", function () {
-        return FooterComponent;
+      __webpack_require__.d(__webpack_exports__, "AppModule", function () {
+        return AppModule;
       });
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/platform-browser */
+      "jhN1");
+      /* harmony import */
+
+
+      var _modules_shared_shared_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./modules/shared/shared.module */
+      "FpXt");
+      /* harmony import */
+
+
+      var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./app-routing.module */
+      "vY5A");
+      /* harmony import */
+
+
+      var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./app.component */
+      "Sy1n");
+      /* harmony import */
+
+
+      var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/platform-browser/animations */
+      "R1ws");
+      /* harmony import */
+
+
+      var _modules_youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./modules/youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component */
+      "Dadq");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
-      var FooterComponent = function FooterComponent() {//do nothing
-
-        _classCallCheck(this, FooterComponent);
+      var AppModule = function AppModule() {
+        _classCallCheck(this, AppModule);
       };
 
-      FooterComponent.ɵfac = function FooterComponent_Factory(t) {
-        return new (t || FooterComponent)();
+      AppModule.ɵfac = function AppModule_Factory(t) {
+        return new (t || AppModule)();
       };
 
-      FooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-        type: FooterComponent,
-        selectors: [["app-footer"]],
-        decls: 2,
-        vars: 0,
-        consts: [[1, "content-container"]],
-        template: function FooterComponent_Template(rf, ctx) {
-          if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "footer");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div", 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-          }
-        },
-        styles: ["footer[_ngcontent-%COMP%] {\n  background: #ebe7ec;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2Zvb3Rlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLG1CQUFBO0FBQ0QiLCJmaWxlIjoiZm9vdGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZm9vdGVyIHtcblx0YmFja2dyb3VuZDogcmdiKDIzNSwgMjMxLCAyMzYpO1xufVxuIl19 */"]
+      AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({
+        type: AppModule,
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
       });
-      /***/
-    },
-
-    /***/
-    "n562":
-    /*!************************************************************!*\
-      !*** ./src/app/modules/shared/classes/question-textbox.ts ***!
-      \************************************************************/
-
-    /*! exports provided: TextboxQuestion */
-
-    /***/
-    function n562(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TextboxQuestion", function () {
-        return TextboxQuestion;
+      AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({
+        providers: [{
+          provide: _modules_youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_5__["googleApiWindow"],
+          useValue: window
+        }, {
+          provide: _angular_common__WEBPACK_IMPORTED_MODULE_6__["APP_BASE_HREF"],
+          useValue: "/" + (window.location.href.includes("localhost") ? "" : "youtube-mp3-downloader/")
+        }],
+        imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _modules_shared_shared_module__WEBPACK_IMPORTED_MODULE_1__["SharedModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]]]
       });
-      /* harmony import */
 
-
-      var _question_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ./question-base */
-      "dLIH");
-
-      var TextboxQuestion = /*#__PURE__*/function (_question_base__WEBPA) {
-        _inherits(TextboxQuestion, _question_base__WEBPA);
-
-        var _super2 = _createSuper(TextboxQuestion);
-
-        function TextboxQuestion() {
-          var _this7;
-
-          _classCallCheck(this, TextboxQuestion);
-
-          _this7 = _super2.apply(this, arguments);
-          _this7.controlType = "textbox";
-          return _this7;
-        }
-
-        return TextboxQuestion;
-      }(_question_base__WEBPACK_IMPORTED_MODULE_0__["QuestionBase"]);
-      /***/
-
-    },
-
-    /***/
-    "tKVC":
-    /*!*************************************************************!*\
-      !*** ./src/app/modules/shared/classes/question-dropdown.ts ***!
-      \*************************************************************/
-
-    /*! exports provided: DropdownQuestion */
-
-    /***/
-    function tKVC(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DropdownQuestion", function () {
-        return DropdownQuestion;
-      });
-      /* harmony import */
-
-
-      var _question_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ./question-base */
-      "dLIH");
-
-      var DropdownQuestion = /*#__PURE__*/function (_question_base__WEBPA2) {
-        _inherits(DropdownQuestion, _question_base__WEBPA2);
-
-        var _super3 = _createSuper(DropdownQuestion);
-
-        function DropdownQuestion() {
-          var _this8;
-
-          _classCallCheck(this, DropdownQuestion);
-
-          _this8 = _super3.apply(this, arguments);
-          _this8.controlType = "dropdown";
-          return _this8;
-        }
-
-        return DropdownQuestion;
-      }(_question_base__WEBPACK_IMPORTED_MODULE_0__["QuestionBase"]);
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](AppModule, {
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _modules_shared_shared_module__WEBPACK_IMPORTED_MODULE_1__["SharedModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]]
+        });
+      })();
       /***/
 
     },
@@ -2209,11 +1705,11 @@
         path: "",
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
-          /*! import() | modules-loan-form-reactive-loan-form-reactive-module */
-          "modules-loan-form-reactive-loan-form-reactive-module").then(__webpack_require__.bind(null,
-          /*! ./modules/loan-form-reactive/loan-form-reactive.module */
-          "SJsF")).then(function (m) {
-            return m.LoanFormReactiveModule;
+          /*! import() | modules-youtube-mp3-downloader-panel-youtube-mp3-downloader-panel-module */
+          "modules-youtube-mp3-downloader-panel-youtube-mp3-downloader-panel-module").then(__webpack_require__.bind(null,
+          /*! ./modules/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.module */
+          "ykjJ")).then(function (m) {
+            return m.YoutubeMp3DownloaderPanel;
           });
         },
         data: {

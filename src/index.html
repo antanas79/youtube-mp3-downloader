@@ -17,9 +17,9 @@
 	<body class="mat-typography">
 		<script src="https://apis.google.com/js/api.js"></script>
 		<div style="display: flex; justify-content: space-between">
-			<button style="height: 50px; width: 120px" onclick="triggerDownloadAll()">
-				trigger all download
-			</button>
+			<!-- <button style="height: 50px; width: 120px" onclick="triggerDownloadAll()">
+				TRIGGER ALL DOWNLOAD
+			</button> -->
 			<select
 				style="height: 50px; width: 200px"
 				name="project"
@@ -59,6 +59,7 @@
 				}
 			}
 			handleProjectChange(localStorage.getItem("project"));
+
 			function handleEnv(passedValue) {
 				var value = document.getElementById("env").value;
 				localStorage.setItem("env", passedValue || value);
@@ -66,7 +67,8 @@
 					document.getElementById(passedValue).setAttribute("selected", true);
 				}
 			}
-			handleEnv(localStorage.getItem("mode"));
+			handleEnv(localStorage.getItem("env"));
+
 			function handleMode(passedValue) {
 				var value = document.getElementById("mode").value;
 				localStorage.setItem("mode", passedValue || value);
@@ -96,7 +98,7 @@
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
 				if (project) {
-					handelSelectChange(project);
+					handleProjectChange(project);
 					gapi.auth2.init({
 						client_id: project || "youtube-downloader-310313" //a.popliauskis
 					});
@@ -109,14 +111,10 @@
 				}
 			}
 
-			function triggerDownloadAll() {
-				const iframes = document.getElementsByTagName("iframe");
-				for (i in iframes) {
-					const contentWindow = iframes[i].contentWindow;
-					console.log({ contentWindow });
-					contentWindow.document.getElementById("downloadButton").click();
-				}
-			}
+			// function triggerDownloadAll() {
+			// 	console.log("sending post");
+			// 	window.postMessage({ shouldStartDownload: true }, "*");
+			// }
 			window.addEventListener("message", (message) => {
 				if (message.data.youtubeVideoId) {
 					triggerAutoDownload(message.data.youtubeVideoId);

@@ -1,32 +1,47 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 
 @Component({
 	selector: "app-loader",
 	templateUrl: "./loader.component.html",
 	styleUrls: ["./loader.component.scss"]
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent implements OnInit, OnChanges {
 	@Input() passedUrl: string;
-	@Input() shouldStartDownload: boolean;
+	@Input() shouldStartDownload = false;
 	buttonTitle: string;
 	link_now: URL;
 	format: string;
 	youtubeVideoId: string;
 	progress: number;
 	downloadUrl = "";
-	constructor() {}
+	@HostListener("window:message", ["$event"])
+	onMessage(event) {
+		console.log({ event });
+		if (event.data.shouldStartDownload) {
+			this.download();
+		}
+	}
+	// constructor() {
+	// 	if (window.addEventListener) {
+	// 		window.addEventListener("message", this.download.bind(this), false);
+	// 	} else {
+	// 		(<any>window).attachEvent("onmessage", this.download.bind(this));
+	// 	}
+	// }
 
 	ngOnInit(): void {
-		console.log({
-			//@ts-ignore
-			url: this.passedUrl.changingThisBreaksApplicationSecurity
-		});
 		//@ts-ignore
 		this.link_now = new URL(this.passedUrl.changingThisBreaksApplicationSecurity);
 		this.youtubeVideoId = this.link_now.searchParams.get("youtubeVideoId");
 		this.format = this.link_now.searchParams.get("f");
 		this.buttonTitle = JSON.stringify(this.link_now);
-		this.download();
+		console.log({ shouldStartDownload: this.shouldStartDownload });
+	}
+
+	ngOnChanges(changes: SimpleChanges): void {
+		if (changes.shouldStartDownload.currentValue && !changes.shouldStartDownload.previousValue) {
+			this.download();
+		}
 	}
 
 	download() {

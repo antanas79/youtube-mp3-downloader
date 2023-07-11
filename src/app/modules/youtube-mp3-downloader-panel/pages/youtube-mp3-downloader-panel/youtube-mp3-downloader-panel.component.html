@@ -1,6 +1,9 @@
 <div>
 	<form [formGroup]="form" class="col-12 p-0 d-flex flex-wrap">
 		<div class="col-6 p-0">
+			<button (click)="toggleShouldStartDownload()" style="height: 50px; margin-top: 15px">
+				TOGGLE DOWNLOAD ALL: current value - {{shouldStartDownload}}
+			</button>
 			<mat-form-field style="height: 500px">
 				<!-- <input matInput type="text" placeholder="Enter search" formControlName="search"> -->
 				<textarea style="height: 500px !important" matInput formControlName="search"></textarea>
@@ -102,11 +105,19 @@
 			<div class="d-flex col-12 p-0" *ngFor="let video of foundVideosArray; let i = index;">
 				<div class="border-top border-bottom mb-2 d-flex align-items-center col-12 p-0">
 					<div class="col-3">
-						<ng-container *ngIf="env === 'local'">
-							<app-loader [passedUrl]="foundVideosArray[i].iframeUrl"></app-loader>
+						<ng-container *ngIf="env === 'github' && mode !== 'instant-download' ">
+							<iframe [src]="foundVideosArray[i].githubIframeUrl"></iframe>
 						</ng-container>
-						<ng-container *ngIf="env === 'github'">
-							<iframe onload="" [src]="foundVideosArray[i].githubIframeUrl"></iframe>
+						<ng-container *ngIf="env === 'local' && mode !== 'instant-download'">
+							<app-loader
+								[passedUrl]="foundVideosArray[i].iframeUrl"
+								[shouldStartDownload]="shouldStartDownload"
+							>
+								></app-loader
+							>
+						</ng-container>
+						<ng-container *ngIf="env === 'local' && mode === 'instant-download'">
+							<iframe [src]="foundVideosArray[i].localIframeUrl"></iframe>
 						</ng-container>
 					</div>
 
