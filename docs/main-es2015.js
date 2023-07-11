@@ -262,7 +262,7 @@ function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_
 } }
 function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_ng_container_5_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "iframe", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "iframe", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
 } if (rf & 2) {
     const i_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]().index;
@@ -315,9 +315,9 @@ function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_13_Template(rf, 
 } }
 function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_tr_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "th", 32);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "div", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "div", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
@@ -327,7 +327,7 @@ function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_tr_2_Template
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r37);
 } }
 function YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " INCORRECT SEARCHES: ");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_ng_container_16_div_14_tr_2_Template, 4, 1, "tr", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
@@ -463,14 +463,14 @@ class YoutubeMp3DownloaderPanelComponent {
                         .subscribe((res) => {
                         let url = this.youtubeLinkFirstPart +
                             resp.items[0].id.videoId +
-                            "&f=mp3&color=64c896&youtubeVideoId=" +
+                            "&f=mp3&quality=320&color=64c896&youtubeVideoId=" +
                             resp.items[0].id.videoId;
                         let sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
                         this.foundVideosArray.push({
                             title: res.items[0].snippet.title,
                             videoId: resp.items[0].id.videoId,
                             iframeUrl: sanitizedUrl,
-                            githubIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl("https://loader.to/api/button/?url=" + url),
+                            githubIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl("https://convert2mp3s.com/api/single/mp3?url=" + url),
                             localIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl("assets/loader.html?url=" + url),
                             searchedValue: this.form.value.searchArray[i].searchValue
                         });
@@ -561,7 +561,7 @@ YoutubeMp3DownloaderPanelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODUL
                 useValue: { showError: true }
             },
             _shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__["GetVideoInfoService"]
-        ]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵNgOnChangesFeature"]], decls: 17, vars: 7, consts: [[1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], [2, "height", "50px", "margin-top", "15px", 3, "click"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", 2, "height", "500px !important"], ["mat-button", "", "type", "submit", 3, "click"], [4, "ngIf"], [4, "ngFor", "ngForOf"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["class", "col-6 p-0", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [3, "src"], [3, "passedUrl", "shouldStartDownload"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]], template: function YoutubeMp3DownloaderPanelComponent_Template(rf, ctx) { if (rf & 1) {
+        ]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵNgOnChangesFeature"]], decls: 17, vars: 7, consts: [[1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], [2, "height", "50px", "margin-top", "15px", 3, "click"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", 2, "height", "500px !important"], ["mat-button", "", "type", "submit", 3, "click"], [4, "ngIf"], [4, "ngFor", "ngForOf"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["class", "col-6 p-0", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], ["width", "100%", "height", "100%", "allowtransparency", "true", "scrolling", "no", 2, "border", "none", 3, "src"], [3, "passedUrl", "shouldStartDownload"], [3, "src"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]], template: function YoutubeMp3DownloaderPanelComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "div", 1);

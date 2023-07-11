@@ -144,16 +144,15 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 								let url =
 									this.youtubeLinkFirstPart +
 									resp.items[0].id.videoId +
-									"&f=mp3&color=64c896&youtubeVideoId=" +
+									"&f=mp3&quality=320&color=64c896&youtubeVideoId=" +
 									resp.items[0].id.videoId;
 								let sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-
 								this.foundVideosArray.push({
 									title: res.items[0].snippet.title,
 									videoId: resp.items[0].id.videoId,
 									iframeUrl: sanitizedUrl,
 									githubIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
-										"https://loader.to/api/button/?url=" + url
+										"https://convert2mp3s.com/api/single/mp3?url=" + url
 									),
 									localIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
 										"assets/loader.html?url=" + url
