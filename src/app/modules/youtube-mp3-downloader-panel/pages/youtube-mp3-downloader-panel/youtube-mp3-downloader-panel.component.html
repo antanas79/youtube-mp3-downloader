@@ -1,9 +1,7 @@
 <div>
 	<form [formGroup]="form" class="col-12 p-0 d-flex flex-wrap">
 		<div class="col-6 p-0">
-			<button (click)="toggleShouldStartDownload()" style="height: 50px; margin-top: 15px">
-				TOGGLE DOWNLOAD ALL: current value - {{shouldStartDownload}}
-			</button>
+			<button (click)="downloadAll()" style="height: 50px; margin-top: 15px">DOWNLOAD ALL</button>
 			<mat-form-field style="height: 500px">
 				<!-- <input matInput type="text" placeholder="Enter search" formControlName="search"> -->
 				<textarea style="height: 500px !important" matInput formControlName="search"></textarea>

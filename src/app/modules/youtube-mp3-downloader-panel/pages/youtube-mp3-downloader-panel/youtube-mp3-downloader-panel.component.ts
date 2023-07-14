@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable, Inject, OnChanges } from "@angular/core";
+import { Component, OnInit, OnDestroy, Injectable, Inject } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GetVideoInfoService } from "../../../shared/services/getVideoInfo";
 import { Subject } from "rxjs";
@@ -38,7 +38,7 @@ export const defaultProjects = [
 		GetVideoInfoService
 	]
 })
-export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, OnChanges {
+export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	private ngUnsubscribe = new Subject();
 	youtubeLinkFirstPart = "https://www.youtube.com/watch?v=";
 	loaded = false;
@@ -66,10 +66,6 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 			if (params["projects"] && JSON.parse(params["projects"])) {
 				this.projects = JSON.parse(params["projects"]);
 			}
-		});
-		console.log({
-			env: this.env,
-			mode: this.mode
 		});
 		this.authenticate()?.then(this.loadClient());
 		this.form = this._formBuilder.group({
@@ -252,8 +248,14 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 		this.ngUnsubscribe.complete();
 	}
 
-	ngOnChanges(): void {
-		console.log("changes");
+	downloadAll() {
+		window.parent.postMessage(
+			{
+				foundVideosArray: this.foundVideosArray,
+				downloadAll: true
+			},
+			"*"
+		);
 	}
 
 	//TODO
