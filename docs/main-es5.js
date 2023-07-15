@@ -819,11 +819,13 @@
               incorrectArray: this._formBuilder.array([])
             });
             window.addEventListener("message", function (message) {
+              var _a, _b;
+
               console.log({
                 messageReceivedWithData: message
               });
 
-              if (message.data.data.data) {
+              if ((_b = (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.data) {
                 _this2.foundVideosArray[message.data.data.data].downloading = message.data.data.data.downloading;
                 _this2.foundVideosArray[message.data.data.data].error = message.data.data.data.error;
               }
