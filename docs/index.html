@@ -12,7 +12,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet"/>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 	<link rel="stylesheet" href="styles.css"></head>
-	<body class="mat-typography">
+	<body class="mat-typography" style="background-color: #fbf2eb">
 		<script src="https://apis.google.com/js/api.js"></script>
 		<div style="display: flex; justify-content: space-between">
 			<!-- <button style="height: 50px; width: 120px" onclick="triggerDownloadAll()">
@@ -33,12 +33,12 @@
 				<option value="local" id="local">local</option>
 				<option value="github" id="github">github</option>
 			</select>
-			<select style="height: 50px; width: 200px" name="mode" id="mode" onchange="handleMode()">
+			<!-- <select style="height: 50px; width: 200px" name="mode" id="mode" onChange="handleMode()">
 				<option value="instant-download" id="instant-download">instant-download</option>
 				<option value="download-after-button-click-all" id="download-after-button-click-all">
 					download after button click all
 				</option>
-			</select>
+			</select> -->
 		</div>
 
 		<app-root></app-root>
@@ -62,20 +62,15 @@
 			}
 			handleEnv(localStorage.getItem("env"));
 
-			function handleMode(passedValue) {
-				var value = document.getElementById("mode").value;
-				localStorage.setItem("mode", passedValue || value);
-				if (passedValue) {
-					document.getElementById(passedValue).setAttribute("selected", true);
-				}
-			}
-			handleMode(localStorage.getItem("mode"));
+			// function handleMode(passedValue) {
+			// 	var value = document.getElementById("mode").value;
+			// 	localStorage.setItem("mode", passedValue || value);
+			// 	if (passedValue) {
+			// 		document.getElementById(passedValue).setAttribute("selected", true);
+			// 	}
+			// }
+			// handleMode(localStorage.getItem("mode"));
 
-			/**
-			 * Sample JavaScript code for youtube.search.list
-			 * See instructions for running APIs Explorer code samples locally:
-			 * https://developers.google.com/explorer-help/guides/code_samples#javascript
-			 */
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
 			const projects = new URL(window.location.href).searchParams.get("projects");
 			if (projects) {
@@ -98,21 +93,21 @@
 				}
 			});
 
-			function triggerAutoDownload(passedVideoId) {
-				if (document.getElementById(passedVideoId)) {
-					document.getElementById(passedVideoId).click();
-				}
-			}
-
-			// function triggerDownloadAll() {
-			// 	console.log("sending post");
-			// 	window.postMessage({ shouldStartDownload: true }, "*");
+			// function triggerAutoDownload(passedVideoId) {
+			// 	if (document.getElementById(passedVideoId)) {
+			// 		document.getElementById(passedVideoId).click();
+			// 	}
 			// }
-			window.addEventListener("message", (message) => {
-				if (message.data.youtubeVideoId) {
-					triggerAutoDownload(message.data.youtubeVideoId);
-				}
-			});
+
+			// // function triggerDownloadAll() {
+			// // 	console.log("sending post");
+			// // 	window.postMessage({ shouldStartDownload: true }, "*");
+			// // }
+			// window.addEventListener("message", (message) => {
+			// 	if (message.data.youtubeVideoId) {
+			// 		triggerAutoDownload(message.data.youtubeVideoId);
+			// 	}
+			// });
 		</script>
 	<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
 </html>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable, Inject } from "@angular/core";
+import { Component, OnInit, OnDestroy, Injectable, Inject, SimpleChanges, OnChanges } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GetVideoInfoService } from "../../../shared/services/getVideoInfo";
 import { Subject } from "rxjs";
@@ -38,7 +38,7 @@ export const defaultProjects = [
 		GetVideoInfoService
 	]
 })
-export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
+export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, OnChanges {
 	private ngUnsubscribe = new Subject();
 	youtubeLinkFirstPart = "https://www.youtube.com/watch?v=";
 	loaded = false;
@@ -51,7 +51,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	shouldStartDownload = false;
 	env = localStorage.getItem("env");
 	//@ts-ignore
-	mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
+	// mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
 
 	constructor(
 		@Inject(googleApiWindow) public window: googleApiWindow,
@@ -71,10 +71,18 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 		this.form = this._formBuilder.group({
 			search: [null, Validators.required],
 			editableSearchArray: this._formBuilder.array([]),
-			numberToTrimFromStart: [0],
-			whatCharacterToTrim: [""],
+			numberToTrimFromStart: [localStorage.getItem("numberToTrimFromStart") || 0],
+			whatCharacterToTrim: [localStorage.getItem("whatCharacterToTrim") || ""],
 			searchArray: this._formBuilder.array([]),
 			incorrectArray: this._formBuilder.array([])
+		});
+		window.addEventListener("message", (message) => {
+			console.log({ messageReceivedWithData: message });
+			if (message.data.data.data) {
+				this.foundVideosArray[message.data.data.data].downloading =
+					message.data.data.data.downloading;
+				this.foundVideosArray[message.data.data.data].error = message.data.data.data.error;
+			}
 		});
 	}
 	get editableSearchArray() {
@@ -153,7 +161,9 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 									localIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl(
 										"assets/loader.html?url=" + url
 									),
-									searchedValue: this.form.value.searchArray[i].searchValue
+									searchedValue: this.form.value.searchArray[i].searchValue,
+									downloading: true,
+									error: false
 								});
 								setTimeout(function () {
 									if (this.form?.value?.searchArray?.length - 1 == i) {
@@ -177,6 +187,10 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 				.get("searchValue")
 				.patchValue(list.at(i).get("searchValue").value.substring(numberToTrimFromStart));
 		}
+	}
+
+	ngOnChanges(changes: SimpleChanges): void {
+		console.log({ changes });
 	}
 
 	trimCharacter() {
