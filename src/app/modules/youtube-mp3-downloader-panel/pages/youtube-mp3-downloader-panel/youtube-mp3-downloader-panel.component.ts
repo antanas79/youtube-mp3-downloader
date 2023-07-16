@@ -49,6 +49,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 	titlesArray = [];
 	projects = defaultProjects;
 	shouldStartDownload = false;
+	downloadedhistorySearches = [];
 	env = localStorage.getItem("env");
 	//@ts-ignore
 	// mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
@@ -84,6 +85,8 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 				console.log({ foundIndex, el: this.foundVideosArray[foundIndex] });
 				this.foundVideosArray[foundIndex].downloaded = true;
 				this.foundVideosArray[foundIndex].error = false;
+				this.downloadedhistorySearches.push(this.foundVideosArray[foundIndex]);
+				this.deleteFound(foundIndex);
 			}
 		});
 	}

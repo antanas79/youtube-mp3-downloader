@@ -163,6 +163,15 @@
 				</div>
 			</div>
 
+			<div class="mt-3 pt-3" *ngIf="downloadedhistorySearches.length > 0">
+				DOWNLOADED HISTORY SEARCHES:
+				<tr *ngFor="let search of downloadedhistorySearches, let i = index">
+					{{search.title}}
+				</tr>
+				<br />
+				<br />
+			</div>
+
 			<div class="mt-3 pt-3" *ngIf="form.value.incorrectArray.length > 0">
 				INCORRECT SEARCHES:
 				<tr *ngFor="let search of form.value.incorrectArray, let i = index">
