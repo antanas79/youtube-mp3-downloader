@@ -827,15 +827,24 @@
 
             console.log("test");
             window.addEventListener("message", function (message) {
-              var _a, _b, _c, _d;
+              var _a, _b, _c, _d, _e, _f;
 
               console.log({
                 messageReceivedWithData: message
               });
+              console.log({
+                youtubeVideoId: (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId
+              });
+              console.log({
+                foundVideosArray: _this2.foundVideosArray
+              });
+              console.log({
+                foundVideosArrayElement: _this2.foundVideosArray[(_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId]
+              });
 
-              if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
-                _this2.foundVideosArray[(_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.youtubeVideoId].downloaded = true;
-                _this2.foundVideosArray[(_d = message === null || message === void 0 ? void 0 : message.data) === null || _d === void 0 ? void 0 : _d.youtubeVideoId].error = false;
+              if (((_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.downloaded) && ((_d = message === null || message === void 0 ? void 0 : message.data) === null || _d === void 0 ? void 0 : _d.youtubeVideoId)) {
+                _this2.foundVideosArray[(_e = message === null || message === void 0 ? void 0 : message.data) === null || _e === void 0 ? void 0 : _e.youtubeVideoId].downloaded = true;
+                _this2.foundVideosArray[(_f = message === null || message === void 0 ? void 0 : message.data) === null || _f === void 0 ? void 0 : _f.youtubeVideoId].error = false;
               }
             });
           }
