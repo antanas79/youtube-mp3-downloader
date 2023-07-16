@@ -374,14 +374,13 @@ class YoutubeMp3DownloaderPanelComponent {
             searchArray: this._formBuilder.array([]),
             incorrectArray: this._formBuilder.array([])
         });
-        window.parent.addEventListener("message", (message) => {
-            var _a, _b, _c, _d;
-            console.log({ messageParentReceivedWithData: message });
-            if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
-                this.foundVideosArray[(_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.youtubeVideoId].downloaded = true;
-                this.foundVideosArray[(_d = message === null || message === void 0 ? void 0 : message.data) === null || _d === void 0 ? void 0 : _d.youtubeVideoId].error = false;
-            }
-        });
+        // window.parent.addEventListener("message", (message) => {
+        // 	console.log({ messageParentReceivedWithData: message });
+        // 	if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
+        // 		this.foundVideosArray[message?.data?.youtubeVideoId].downloaded = true;
+        // 		this.foundVideosArray[message?.data?.youtubeVideoId].error = false;
+        // 	}
+        // });
         window.addEventListener("message", (message) => {
             var _a, _b, _c, _d;
             console.log({ messageReceivedWithData: message });

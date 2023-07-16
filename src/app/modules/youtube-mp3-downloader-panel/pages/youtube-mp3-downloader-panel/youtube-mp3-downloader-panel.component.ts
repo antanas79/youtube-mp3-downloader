@@ -76,13 +76,13 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 			searchArray: this._formBuilder.array([]),
 			incorrectArray: this._formBuilder.array([])
 		});
-		window.parent.addEventListener("message", (message) => {
-			console.log({ messageParentReceivedWithData: message });
-			if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
-				this.foundVideosArray[message?.data?.youtubeVideoId].downloaded = true;
-				this.foundVideosArray[message?.data?.youtubeVideoId].error = false;
-			}
-		});
+		// window.parent.addEventListener("message", (message) => {
+		// 	console.log({ messageParentReceivedWithData: message });
+		// 	if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
+		// 		this.foundVideosArray[message?.data?.youtubeVideoId].downloaded = true;
+		// 		this.foundVideosArray[message?.data?.youtubeVideoId].error = false;
+		// 	}
+		// });
 		window.addEventListener("message", (message) => {
 			console.log({ messageReceivedWithData: message });
 			if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
