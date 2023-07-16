@@ -1,8 +1,10 @@
 <div>
 	<div class="col-12 d-flex justify-content-end">
-		<button style="height: 50px; margin-top: 15px" mat-button (click)="downloadAll()">
-			Download All
-		</button>
+		<ng-container *ngIf="foundVideosArray.length > 0">
+			<button style="height: 50px; margin-top: 15px" mat-button (click)="downloadAll()">
+				Download All
+			</button>
+		</ng-container>
 	</div>
 
 	<form [formGroup]="form" class="col-12 p-0 d-flex flex-wrap">

@@ -248,15 +248,15 @@
       /* harmony import */
 
 
-      var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! @angular/material/button */
-      "bTqV");
+      var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
+      var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/material/button */
+      "bTqV");
       /* harmony import */
 
 
@@ -270,18 +270,42 @@
       /*! @angular/material/input */
       "qFsG");
 
-      function YoutubeMp3DownloaderPanelComponent_div_6_button_13_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_2_Template(rf, ctx) {
         if (rf & 1) {
           var _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "button", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_6_button_13_Template_button_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "button", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_2_Template_button_click_1_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r8);
 
-            var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+            var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
-            return ctx_r7.addToSearchArray();
+            return ctx_r7.downloadAll();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, " Download All ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+        }
+      }
+
+      function YoutubeMp3DownloaderPanelComponent_div_5_button_13_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "button", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_5_button_13_Template_button_click_0_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r11);
+
+            var ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+
+            return ctx_r10.addToSearchArray();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " Add to search array ");
@@ -290,9 +314,9 @@
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_div_6_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_5_Template(rf, ctx) {
         if (rf & 1) {
-          var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+          var _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
 
@@ -306,12 +330,12 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_6_Template_button_click_4_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_5_Template_button_click_4_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r13);
 
-            var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+            var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
-            return ctx_r9.trimStart();
+            return ctx_r12.trimStart();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](5, "Trim");
@@ -330,12 +354,12 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "button", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_6_Template_button_click_10_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_5_Template_button_click_10_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r13);
 
-            var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+            var ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
-            return ctx_r11.trimCharacter();
+            return ctx_r14.trimCharacter();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](11, "Trim character");
@@ -344,23 +368,23 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](12, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_div_6_button_13_Template, 2, 0, "button", 15);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_div_5_button_13_Template, 2, 0, "button", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
-          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+          var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r0.form.value.editableSearchArray.length > 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r1.form.value.editableSearchArray.length > 0);
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_tr_16_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_tr_15_Template(rf, ctx) {
         if (rf & 1) {
-          var _r15 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+          var _r18 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
@@ -380,14 +404,14 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 20);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_tr_16_Template_button_click_7_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r15);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_tr_15_Template_button_click_7_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r18);
 
-            var i_r13 = ctx.index;
+            var i_r16 = ctx.index;
 
-            var ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+            var ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
-            return ctx_r14.deleteEditableSearchItem(i_r13);
+            return ctx_r17.deleteEditableSearchItem(i_r16);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8, "Delete");
@@ -402,21 +426,21 @@
         }
 
         if (rf & 2) {
-          var i_r13 = ctx.index;
+          var i_r16 = ctx.index;
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", i_r13, " -- ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", i_r16, " -- ");
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_div_18_div_2_tr_1_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_17_div_2_tr_1_Template(rf, ctx) {
         if (rf & 1) {
-          var _r21 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+          var _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
@@ -436,14 +460,14 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 20);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_18_div_2_tr_1_Template_button_click_7_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r21);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_17_div_2_tr_1_Template_button_click_7_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r24);
 
-            var i_r19 = ctx.index;
+            var i_r22 = ctx.index;
 
-            var ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
+            var ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
 
-            return ctx_r20.deleteSearchItem(i_r19);
+            return ctx_r23.deleteSearchItem(i_r22);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8, "Delete");
@@ -458,25 +482,25 @@
         }
 
         if (rf & 2) {
-          var i_r19 = ctx.index;
+          var i_r22 = ctx.index;
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r19);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r22);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", i_r19, " -- ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", i_r22, " -- ");
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_div_18_div_2_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_17_div_2_Template(rf, ctx) {
         if (rf & 1) {
-          var _r23 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+          var _r26 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](1, YoutubeMp3DownloaderPanelComponent_div_18_div_2_tr_1_Template, 9, 2, "tr", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](1, YoutubeMp3DownloaderPanelComponent_div_17_div_2_tr_1_Template, 9, 2, "tr", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "br");
 
@@ -484,12 +508,12 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_18_div_2_Template_button_click_4_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r23);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_div_17_div_2_Template_button_click_4_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r26);
 
-            var ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+            var ctx_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
-            return ctx_r22.search();
+            return ctx_r25.search();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](5, "Search");
@@ -500,21 +524,21 @@
         }
 
         if (rf & 2) {
-          var ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+          var ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r16.searchArray.controls);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r19.searchArray.controls);
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_div_18_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_17_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " EDITED SEARCHES: ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_18_div_2_Template, 6, 1, "div", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_17_div_2_Template, 6, 1, "div", 1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
@@ -524,11 +548,11 @@
         }
 
         if (rf & 2) {
-          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+          var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r2.form.value.searchArray.length > 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r3.form.value.searchArray.length > 0);
         }
       }
 
@@ -541,9 +565,9 @@
         };
       };
 
-      function YoutubeMp3DownloaderPanelComponent_ng_container_19_div_13_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template(rf, ctx) {
         if (rf & 1) {
-          var _r29 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+          var _r32 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 22);
 
@@ -577,14 +601,14 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "button", 29);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_19_div_13_Template_button_click_11_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r29);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template_button_click_11_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r32);
 
-            var i_r27 = ctx.index;
+            var i_r30 = ctx.index;
 
-            var ctx_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+            var ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
-            return ctx_r28.moveToIncorrectList(i_r27);
+            return ctx_r31.moveToIncorrectList(i_r30);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](12, " Move To Incorrect ");
@@ -593,14 +617,14 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](13, "button", 30);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_19_div_13_Template_button_click_13_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r29);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template_button_click_13_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r32);
 
-            var i_r27 = ctx.index;
+            var i_r30 = ctx.index;
 
-            var ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+            var ctx_r33 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
-            return ctx_r30.deleteFound(i_r27);
+            return ctx_r33.deleteFound(i_r30);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](14, "Delete");
@@ -615,37 +639,37 @@
         }
 
         if (rf & 2) {
-          var i_r27 = ctx.index;
+          var i_r30 = ctx.index;
 
-          var ctx_r24 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction4"](7, _c0, !ctx_r24.foundVideosArray[i_r27].downloaded, ctx_r24.foundVideosArray[i_r27].downloaded, ctx_r24.foundVideosArray[i_r27].error, !ctx_r24.foundVideosArray[i_r27].error && !ctx_r24.foundVideosArray[i_r27].downloaded));
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", !ctx_r24.foundVideosArray[i_r27].downloaded && !ctx_r24.foundVideosArray[i_r27].error ? "Press Download All" : ctx_r24.foundVideosArray[i_r27].error ? "Error" : ctx_r24.foundVideosArray[i_r27].downloaded ? "Downloaded" : "Downloading", " ");
+          var ctx_r27 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpropertyInterpolate2"]("href", "", ctx_r24.youtubeLinkFirstPart, "", ctx_r24.foundVideosArray[i_r27].videoId, "", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction4"](7, _c0, !ctx_r27.foundVideosArray[i_r30].downloaded, ctx_r27.foundVideosArray[i_r30].downloaded, ctx_r27.foundVideosArray[i_r30].error, !ctx_r27.foundVideosArray[i_r30].error && !ctx_r27.foundVideosArray[i_r30].downloaded));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r24.foundVideosArray[i_r27].title);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ///// ", ctx_r24.foundVideosArray[i_r27].title, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", !ctx_r27.foundVideosArray[i_r30].downloaded && !ctx_r27.foundVideosArray[i_r30].error ? "Press Download All" : ctx_r27.foundVideosArray[i_r30].error ? "Error" : ctx_r27.foundVideosArray[i_r30].downloaded ? "Downloaded" : "Downloading", " ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r24.foundVideosArray[i_r27].title);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpropertyInterpolate2"]("href", "", ctx_r27.youtubeLinkFirstPart, "", ctx_r27.foundVideosArray[i_r30].videoId, "", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r27.foundVideosArray[i_r30].title);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ///// ", ctx_r27.foundVideosArray[i_r30].title, " ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r27.foundVideosArray[i_r30].title);
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_ng_container_19_div_14_tr_2_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_18_div_14_tr_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
@@ -663,21 +687,21 @@
         }
 
         if (rf & 2) {
-          var i_r33 = ctx.index;
+          var i_r36 = ctx.index;
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r33);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroupName", i_r36);
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_ng_container_19_div_14_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_18_div_14_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 31);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " INCORRECT SEARCHES: ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_ng_container_19_div_14_tr_2_Template, 4, 1, "tr", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_ng_container_18_div_14_tr_2_Template, 4, 1, "tr", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
@@ -687,15 +711,15 @@
         }
 
         if (rf & 2) {
-          var ctx_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
+          var ctx_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r25.form.value.incorrectArray);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r28.form.value.incorrectArray);
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_ng_container_19_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_ng_container_18_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](0);
 
@@ -733,69 +757,27 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_ng_container_19_div_13_Template, 15, 12, "div", 25);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template, 15, 12, "div", 25);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, YoutubeMp3DownloaderPanelComponent_ng_container_19_div_14_Template, 5, 1, "div", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, YoutubeMp3DownloaderPanelComponent_ng_container_18_div_14_Template, 5, 1, "div", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
         }
 
         if (rf & 2) {
-          var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r3.foundVideosArray);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r4.foundVideosArray);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r3.form.value.incorrectArray.length > 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx_r4.form.value.incorrectArray.length > 0);
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_div_20_tr_2_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          var search_r35 = ctx.$implicit;
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", search_r35.title, " ");
-        }
-      }
-
-      function YoutubeMp3DownloaderPanelComponent_div_20_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 31);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " SUCCESFULL DOWNLOADS HISTORY ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_20_tr_2_Template, 2, 1, "tr", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](4, "br");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r4.succesfullDownloads);
-        }
-      }
-
-      function YoutubeMp3DownloaderPanelComponent_div_21_tr_2_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_19_tr_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
 
@@ -813,13 +795,13 @@
         }
       }
 
-      function YoutubeMp3DownloaderPanelComponent_div_21_Template(rf, ctx) {
+      function YoutubeMp3DownloaderPanelComponent_div_19_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 31);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " ERRORED DOWNLOADS HISTORY ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " SUCCESFULL DOWNLOADS HISTORY ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_21_tr_2_Template, 2, 1, "tr", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_19_tr_2_Template, 2, 1, "tr", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
@@ -833,7 +815,49 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r5.erroredDownloads);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r5.succesfullDownloads);
+        }
+      }
+
+      function YoutubeMp3DownloaderPanelComponent_div_20_tr_2_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var search_r41 = ctx.$implicit;
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", search_r41.title, " ");
+        }
+      }
+
+      function YoutubeMp3DownloaderPanelComponent_div_20_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 31);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " ERRORED DOWNLOADS HISTORY ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_20_tr_2_Template, 2, 1, "tr", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](4, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngForOf", ctx_r6.erroredDownloads);
         }
       }
 
@@ -1133,82 +1157,78 @@
             showError: true
           }
         }, _shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__["GetVideoInfoService"]])],
-        decls: 22,
-        vars: 7,
-        consts: [[1, "col-12", "d-flex", "justify-content-end"], ["mat-button", "", 2, "height", "50px", "margin-top", "15px", 3, "click"], [1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], [4, "ngIf"], ["mat-button", "", "type", "submit", 2, "margin", "5px", 3, "click"], [2, "background-color", "white", "border-color", "white", "padding", "5px", "width", "240px"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", "placeholder", "Enter list values separated by tab", 2, "height", "500px !important", "width", "500px"], [4, "ngFor", "ngForOf"], ["class", "col-6 p-0", 4, "ngIf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], [1, "col-3", 2, "padding", "10px", 3, "ngClass"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]],
+        decls: 21,
+        vars: 8,
+        consts: [[1, "col-12", "d-flex", "justify-content-end"], [4, "ngIf"], [1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], ["mat-button", "", "type", "submit", 2, "margin", "5px", 3, "click"], [2, "background-color", "white", "border-color", "white", "padding", "5px", "width", "240px"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", "placeholder", "Enter list values separated by tab", 2, "height", "500px !important", "width", "500px"], [4, "ngFor", "ngForOf"], ["class", "col-6 p-0", 4, "ngIf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["mat-button", "", 2, "height", "50px", "margin-top", "15px", 3, "click"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], [1, "col-3", 2, "padding", "10px", 3, "ngClass"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]],
         template: function YoutubeMp3DownloaderPanelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "div", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "button", 1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_Template_button_click_2_listener() {
-              return ctx.downloadAll();
-            });
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, " Download All ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_ng_container_2_Template, 3, 0, "ng-container", 1);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](3, "form", 2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "form", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "div", 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](5, YoutubeMp3DownloaderPanelComponent_div_5_Template, 14, 1, "div", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](6, YoutubeMp3DownloaderPanelComponent_div_6_Template, 14, 1, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](6, "button", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 5);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_Template_button_click_7_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function YoutubeMp3DownloaderPanelComponent_Template_button_click_6_listener() {
               return ctx.submit();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8, "SUBMIT");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "SUBMIT");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](8, "div", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "mat-form-field", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "mat-form-field", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](11, "textarea", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](10, "textarea", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](12, "mat-error");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](11, "mat-error");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](13, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](14, " EDITABLE SEARCHES: ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](12, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](15, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](13, " EDITABLE SEARCHES: ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](16, YoutubeMp3DownloaderPanelComponent_tr_16_Template, 9, 2, "tr", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](14, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](17, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](15, YoutubeMp3DownloaderPanelComponent_tr_15_Template, 9, 2, "tr", 8);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](16, "br");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](18, YoutubeMp3DownloaderPanelComponent_div_18_Template, 5, 1, "div", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](17, YoutubeMp3DownloaderPanelComponent_div_17_Template, 5, 1, "div", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](19, YoutubeMp3DownloaderPanelComponent_ng_container_19_Template, 15, 2, "ng-container", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](18, YoutubeMp3DownloaderPanelComponent_ng_container_18_Template, 15, 2, "ng-container", 1);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](20, YoutubeMp3DownloaderPanelComponent_div_20_Template, 5, 1, "div", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](19, YoutubeMp3DownloaderPanelComponent_div_19_Template, 5, 1, "div", 10);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](21, YoutubeMp3DownloaderPanelComponent_div_21_Template, 5, 1, "div", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](20, YoutubeMp3DownloaderPanelComponent_div_20_Template, 5, 1, "div", 10);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx.foundVideosArray.length > 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroup", ctx.form);
 
@@ -1237,7 +1257,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", ctx.erroredDownloads.length > 0);
           }
         },
-        directives: [_angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatError"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormArrayName"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupName"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgClass"]],
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_9__["MatButton"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatError"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormArrayName"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupName"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgClass"]],
         styles: [".downloading[_ngcontent-%COMP%] {\n  background-color: yellow;\n}\n\n.downloaded[_ngcontent-%COMP%] {\n  background-color: green;\n}\n\n.error[_ngcontent-%COMP%] {\n  background-color: red;\n}\n\n.notStarted[_ngcontent-%COMP%] {\n  background-color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3lvdXR1YmUtbXAzLWRvd25sb2FkZXItcGFuZWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyx3QkFBQTtBQUNEOztBQUVBO0VBQ0MsdUJBQUE7QUFDRDs7QUFFQTtFQUNDLHFCQUFBO0FBQ0Q7O0FBRUE7RUFDQyxxQkFBQTtBQUNEIiwiZmlsZSI6InlvdXR1YmUtbXAzLWRvd25sb2FkZXItcGFuZWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZG93bmxvYWRpbmcge1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XG59XG5cbi5kb3dubG9hZGVkIHtcblx0YmFja2dyb3VuZC1jb2xvcjogZ3JlZW47XG59XG5cbi5lcnJvciB7XG5cdGJhY2tncm91bmQtY29sb3I6IHJlZDtcbn1cblxuLm5vdFN0YXJ0ZWQge1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XG59XG4iXX0= */"]
       });
       YoutubeMp3DownloaderPanelComponent.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
