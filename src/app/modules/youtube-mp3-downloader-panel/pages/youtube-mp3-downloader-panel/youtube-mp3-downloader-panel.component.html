@@ -110,7 +110,7 @@
 			FOUND VIDEOS:
 			<div class="d-flex col-12 p-0">
 				<div class="border-top border-bottom mb-2 d-flex align-items-center col-12 p-0">
-					<div class="col-3"></div>
+					<div class="col-3">Prog</div>
 					<div class="col-3">Searched item</div>
 					<div class="col-3">Found youtube item title</div>
 					<div class="col-3">Move/delete</div>
@@ -122,9 +122,9 @@
 					[ngClass]="{'downloading': !foundVideosArray[i].downloaded, 'downloaded': foundVideosArray[i].downloaded, 'error': foundVideosArray[i].error, notStarted: !foundVideosArray[i].error && !foundVideosArray[i].downloaded}"
 				>
 					<div class="col-3" style="padding: 10px">
-						{{!foundVideosArray[i].downloaded && !foundVideosArray[i].error ? 'Press Download All'
-						: (foundVideosArray[i].error ? 'Error' : (foundVideosArray[i].downloaded ?
-						'Downloaded' : 'Downloading' ))}}
+						{{!foundVideosArray[i].downloaded && !foundVideosArray[i].error ? 'Download not
+						initiated, Press "Download All"' : (foundVideosArray[i].error ? 'Error' :
+						(foundVideosArray[i].downloaded ? 'Downloaded' : 'Downloading' ))}}
 						<!-- <ng-container *ngIf="env === 'github' && mode !== 'instant-download' ">
 							<iframe
 								[src]="foundVideosArray[i].githubIframeUrl"
@@ -134,17 +134,6 @@
 								scrolling="no"
 								style="border: none"
 							></iframe>
-						</ng-container>
-						<ng-container *ngIf="env === 'local' && mode !== 'instant-download'">
-							<app-loader
-								[passedUrl]="foundVideosArray[i].iframeUrl"
-								[shouldStartDownload]="shouldStartDownload"
-							>
-								></app-loader
-							>
-						</ng-container>
-						<ng-container *ngIf="env === 'local' && mode === 'instant-download'">
-							<iframe [src]="foundVideosArray[i].localIframeUrl"></iframe>
 						</ng-container> -->
 					</div>
 					<div>
