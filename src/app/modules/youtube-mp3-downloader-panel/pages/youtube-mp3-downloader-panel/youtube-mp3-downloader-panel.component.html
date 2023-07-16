@@ -7,21 +7,6 @@
 
 	<form [formGroup]="form" class="col-12 p-0 d-flex flex-wrap">
 		<div class="col-6 p-0">
-			<button mat-button type="submit" (click)="submit()">SUBMIT</button>
-			<div style="background-color: white; border-color: white; padding: 5px; width: 240px">
-				<mat-form-field style="height: 500px">
-					<textarea
-						style="height: 500px !important; width: 500px"
-						matInput
-						formControlName="search"
-						placeholder="Enter list values separated by tab"
-					></textarea>
-					<mat-error></mat-error>
-				</mat-form-field>
-			</div>
-
-			<br />
-
 			<div *ngIf="editableSearchArray.controls.length > 0">
 				<mat-form-field>
 					<input
@@ -49,9 +34,30 @@
 
 				<br />
 
-				<br />
-				EDITABLE SEARCHES:
+				<button
+					*ngIf="form.value.editableSearchArray.length > 0"
+					(click)="addToSearchArray()"
+					mat-raised-button
+				>
+					Add to search array
+				</button>
 			</div>
+			<button mat-button type="submit" style="margin: 5px" (click)="submit()">SUBMIT</button>
+			<div style="background-color: white; border-color: white; padding: 5px; width: 240px">
+				<mat-form-field style="height: 500px">
+					<textarea
+						style="height: 500px !important; width: 500px"
+						matInput
+						formControlName="search"
+						placeholder="Enter list values separated by tab"
+					></textarea>
+					<mat-error></mat-error>
+				</mat-form-field>
+			</div>
+
+			<br />
+			EDITABLE SEARCHES:
+			<br />
 
 			<tr *ngFor="let search of editableSearchArray.controls, let i = index">
 				<th formArrayName="editableSearchArray">
@@ -67,13 +73,6 @@
 				</th>
 			</tr>
 			<br />
-			<button
-				*ngIf="form.value.editableSearchArray.length > 0"
-				(click)="addToSearchArray()"
-				mat-raised-button
-			>
-				Add to search array
-			</button>
 		</div>
 		<div class="col-6 p-0" *ngIf="form.value.searchArray.length > 0">
 			EDITED SEARCHES:
