@@ -403,7 +403,11 @@ class YoutubeMp3DownloaderPanelComponent {
             var _a, _b;
             if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
                 const foundIndex = this.foundVideosArray.findIndex((el) => { var _a; return el.videoId === ((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId); });
-                console.log({ foundIndex, el: this.foundVideosArray[foundIndex] });
+                console.log({
+                    foundIndex,
+                    el: this.foundVideosArray[foundIndex],
+                    foundVideosArray: this.foundVideosArray
+                });
                 this.foundVideosArray[foundIndex].downloaded = true;
                 this.foundVideosArray[foundIndex].error = false;
                 this.downloadedhistorySearches.push(this.foundVideosArray[foundIndex]);

@@ -879,7 +879,8 @@
 
                 console.log({
                   foundIndex: foundIndex,
-                  el: _this2.foundVideosArray[foundIndex]
+                  el: _this2.foundVideosArray[foundIndex],
+                  foundVideosArray: _this2.foundVideosArray
                 });
                 _this2.foundVideosArray[foundIndex].downloaded = true;
                 _this2.foundVideosArray[foundIndex].error = false;
