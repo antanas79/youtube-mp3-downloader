@@ -55,25 +55,29 @@
 					<mat-error></mat-error>
 				</mat-form-field>
 			</div>
+			<div>
+				<ng-container *ngIf="editableSearchArray.controls.length > 0">
+					<br />
+					EDITABLE SEARCHES:
+					<br />
+				</ng-container>
+				<tr *ngFor="let search of editableSearchArray.controls, let i = index">
+					<th formArrayName="editableSearchArray">
+						<div [formGroupName]="i">
+							{{i}} --
+							<mat-form-field>
+								<input matInput formControlName="searchValue" type="text" />
 
-			<br />
-			EDITABLE SEARCHES:
-			<br />
-
-			<tr *ngFor="let search of editableSearchArray.controls, let i = index">
-				<th formArrayName="editableSearchArray">
-					<div [formGroupName]="i">
-						{{i}} --
-						<mat-form-field>
-							<input matInput formControlName="searchValue" type="text" />
-
-							<mat-error></mat-error>
-						</mat-form-field>
-						<button mat-button color="warn" (click)="deleteEditableSearchItem(i)">Delete</button>
-					</div>
-				</th>
-			</tr>
-			<br />
+								<mat-error></mat-error>
+							</mat-form-field>
+							<button mat-button color="warn" (click)="deleteEditableSearchItem(i)">
+								Delete
+							</button>
+						</div>
+					</th>
+				</tr>
+				<br />
+			</div>
 		</div>
 		<div class="col-6 p-0" *ngIf="form.value.searchArray.length > 0">
 			EDITED SEARCHES:
