@@ -409,7 +409,8 @@ class YoutubeMp3DownloaderPanelComponent {
                 console.log({
                     foundIndex,
                     el: this.foundVideosArray[foundIndex],
-                    foundVideosArray: this.foundVideosArray
+                    foundVideosArray: this.foundVideosArray,
+                    message
                 });
                 if (foundIndex >= 0) {
                     this.foundVideosArray[foundIndex].downloaded = true;

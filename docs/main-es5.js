@@ -886,7 +886,8 @@
                 console.log({
                   foundIndex: foundIndex,
                   el: _this2.foundVideosArray[foundIndex],
-                  foundVideosArray: _this2.foundVideosArray
+                  foundVideosArray: _this2.foundVideosArray,
+                  message: message
                 });
 
                 if (foundIndex >= 0) {
