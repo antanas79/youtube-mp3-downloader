@@ -271,13 +271,13 @@ function YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template(rf, 
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction3"](8, _c0, !ctx_r23.foundVideosArray[i_r26].downloaded, ctx_r23.foundVideosArray[i_r26].downloaded, ctx_r23.foundVideosArray[i_r26].error));
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", ctx_r23.foundVideosArray[i_r26].downloaded ? "downloaded" : "downloading", " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", !ctx_r23.foundVideosArray[i_r26].downloaded && !ctx_r23.foundVideosArray[i_r26].error ? "Press Download All" : ctx_r23.foundVideosArray[i_r26].error ? "Error" : ctx_r23.foundVideosArray[i_r26].downloaded ? "Downloaded" : "Downloading", " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpropertyInterpolate2"]("href", "", ctx_r23.youtubeLinkFirstPart, "", ctx_r23.foundVideosArray[i_r26].videoId, "", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r23.foundVideosArray[i_r26].searchedValue);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r23.foundVideosArray[i_r26].title);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate2"](" --- textToCopy ---- ", ctx_r23.youtubeLinkFirstPart, "", ctx_r23.foundVideosArray[i_r26].videoId, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate2"](" ///// ", ctx_r23.youtubeLinkFirstPart, "", ctx_r23.foundVideosArray[i_r26].videoId, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r23.foundVideosArray[i_r26].title);
 } }

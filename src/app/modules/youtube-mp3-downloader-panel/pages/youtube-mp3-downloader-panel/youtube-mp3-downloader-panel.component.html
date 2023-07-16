@@ -117,7 +117,9 @@
 						style="padding: 10px"
 						[ngClass]="{'downloading': !foundVideosArray[i].downloaded, 'downloaded': foundVideosArray[i].downloaded, 'error': foundVideosArray[i].error}"
 					>
-						{{foundVideosArray[i].downloaded ? 'downloaded' : 'downloading' }}
+						{{!foundVideosArray[i].downloaded && !foundVideosArray[i].error ? 'Press Download All'
+						: (foundVideosArray[i].error ? 'Error' : (foundVideosArray[i].downloaded ?
+						'Downloaded' : 'Downloading' ))}}
 						<!-- <ng-container *ngIf="env === 'github' && mode !== 'instant-download' ">
 							<iframe
 								[src]="foundVideosArray[i].githubIframeUrl"
@@ -145,9 +147,9 @@
 							class="col-3"
 							href="{{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}"
 							target="_blank"
-							>{{foundVideosArray[i].searchedValue}}</a
+							>{{foundVideosArray[i].title}}</a
 						>
-						--- textToCopy ---- {{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}
+						///// {{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}
 					</div>
 
 					<div class="col-3">{{foundVideosArray[i].title}}</div>
