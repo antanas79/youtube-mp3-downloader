@@ -77,6 +77,7 @@
 				document.getElementById("project").innerHTML = arrOptions.join();
 			}
 			const projectFromUrl = new URL(window.location.href).searchParams.get("project");
+			console.log({ projectFromUrl });
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
 				if (projectFromUrl || project) {
