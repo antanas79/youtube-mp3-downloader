@@ -140,13 +140,15 @@
 							<iframe [src]="foundVideosArray[i].localIframeUrl"></iframe>
 						</ng-container> -->
 					</div>
-
-					<a
-						class="col-3"
-						href="{{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}"
-						target="_blank"
-						>{{foundVideosArray[i].searchedValue}}</a
-					>
+					<div>
+						<a
+							class="col-3"
+							href="{{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}"
+							target="_blank"
+							>{{foundVideosArray[i].searchedValue}}</a
+						>
+						--- textToCopy ---- {{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}
+					</div>
 
 					<div class="col-3">{{foundVideosArray[i].title}}</div>
 					<div class="col-3 d-flex">

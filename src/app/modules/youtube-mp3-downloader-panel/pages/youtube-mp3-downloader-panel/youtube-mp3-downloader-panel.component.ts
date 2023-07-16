@@ -79,6 +79,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 		});
 		window.addEventListener("message", (message) => {
 			if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
+				const error = message?.data?.error;
 				const foundIndex = this.foundVideosArray.findIndex(
 					(el) => el.videoId === message?.data?.youtubeVideoId
 				);
@@ -88,9 +89,11 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 					foundVideosArray: this.foundVideosArray
 				});
 				this.foundVideosArray[foundIndex].downloaded = true;
-				this.foundVideosArray[foundIndex].error = false;
+				this.foundVideosArray[foundIndex].error = error || false;
 				this.downloadedhistorySearches.push(this.foundVideosArray[foundIndex]);
-				this.deleteFound(foundIndex);
+				if (!error) {
+					this.deleteFound(foundIndex);
+				}
 			}
 		});
 	}
