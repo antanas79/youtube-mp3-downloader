@@ -58,9 +58,6 @@
 
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
 			const projects = new URL(window.location.href).searchParams.get("projects");
-			console.log({
-				projectFromUrlNotParsed: new URL(window.location.href).searchParams.get("project")
-			});
 			if (projects) {
 				const parsedProjects = JSON.parse(projects);
 				let arrOptions = [];
@@ -80,10 +77,6 @@
 						client_id: projectFromUrl || project || "youtube-downloader-310313" //a.popliauskis
 					});
 				}
-			});
-
-			window.addEventListener("message", (message) => {
-				console.log({ messageDataInYoutubeMp3Download: message });
 			});
 		</script>
 	<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>

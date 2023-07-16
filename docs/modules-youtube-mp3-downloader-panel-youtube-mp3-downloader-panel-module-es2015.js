@@ -65,7 +65,6 @@ class LoaderComponent {
         this.downloadUrl = "";
     }
     onMessage(event) {
-        console.log({ event });
         if (event.data.shouldStartDownload) {
             this.download();
         }
@@ -83,7 +82,6 @@ class LoaderComponent {
         this.youtubeVideoId = this.link_now.searchParams.get("youtubeVideoId");
         this.format = this.link_now.searchParams.get("f");
         this.buttonTitle = JSON.stringify(this.link_now);
-        console.log({ shouldStartDownload: this.shouldStartDownload });
     }
     ngOnChanges(changes) {
         if (changes.shouldStartDownload.currentValue && !changes.shouldStartDownload.previousValue) {

@@ -422,12 +422,9 @@ class YoutubeMp3DownloaderPanelComponent {
         this.shouldStartDownload = !this.shouldStartDownload;
     }
     authenticate() {
-        var _a, _b, _c;
-        console.log({
-            apiKey: (_a = this.projects.find((p) => p.name === localStorage.getItem("project"))) === null || _a === void 0 ? void 0 : _a.apiKey
-        });
+        var _a, _b;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return (_c = (_b = this.window.gapi.auth2) === null || _b === void 0 ? void 0 : _b.getAuthInstance()) === null || _c === void 0 ? void 0 : _c.signIn({
+        return (_b = (_a = this.window.gapi.auth2) === null || _a === void 0 ? void 0 : _a.getAuthInstance()) === null || _b === void 0 ? void 0 : _b.signIn({
             scope: "https://www.googleapis.com/auth/youtube.force-ssl"
         }).then(function () {
             console.log("Sign-in successful");
@@ -495,9 +492,9 @@ class YoutubeMp3DownloaderPanelComponent {
                 .patchValue(list.at(i).get("searchValue").value.substring(numberToTrimFromStart));
         }
     }
-    ngOnChanges(changes) {
-        console.log({ changes });
-    }
+    // ngOnChanges(changes: SimpleChanges): void {
+    // 	console.log({ changes });
+    // }
     trimCharacter() {
         let list = this.form.get("editableSearchArray");
         let whatCharacterToTrim = this.form.value.whatCharacterToTrim;
@@ -565,7 +562,7 @@ YoutubeMp3DownloaderPanelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODUL
                 useValue: { showError: true }
             },
             _shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__["GetVideoInfoService"]
-        ]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵNgOnChangesFeature"]], decls: 20, vars: 7, consts: [[1, "col-12", "d-flex", "justify-content-end"], [2, "height", "50px", "margin-top", "15px", 3, "click"], [1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], ["mat-button", "", "type", "submit", 3, "click"], [2, "background-color", "white", "border-color", "white", "padding", "5px", "width", "240px"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", "placeholder", "Enter list values separated by tab", 2, "height", "500px !important", "width", "500px"], [4, "ngIf"], [4, "ngFor", "ngForOf"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["class", "col-6 p-0", 4, "ngIf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], [1, "col-3", 2, "padding", "10px", 3, "ngClass"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]], template: function YoutubeMp3DownloaderPanelComponent_Template(rf, ctx) { if (rf & 1) {
+        ])], decls: 20, vars: 7, consts: [[1, "col-12", "d-flex", "justify-content-end"], [2, "height", "50px", "margin-top", "15px", 3, "click"], [1, "col-12", "p-0", "d-flex", "flex-wrap", 3, "formGroup"], [1, "col-6", "p-0"], ["mat-button", "", "type", "submit", 3, "click"], [2, "background-color", "white", "border-color", "white", "padding", "5px", "width", "240px"], [2, "height", "500px"], ["matInput", "", "formControlName", "search", "placeholder", "Enter list values separated by tab", 2, "height", "500px !important", "width", "500px"], [4, "ngIf"], [4, "ngFor", "ngForOf"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["class", "col-6 p-0", 4, "ngIf"], ["class", "mt-3 pt-3", 4, "ngIf"], ["matInput", "", "formControlName", "numberToTrimFromStart", "type", "number", "placeholder", "How many chars to trim from start"], ["mat-button", "", 3, "click"], ["matInput", "", "formControlName", "whatCharacterToTrim", "type", "text", "placeholder", "What character to trim"], ["formArrayName", "editableSearchArray"], [3, "formGroupName"], ["matInput", "", "formControlName", "searchValue", "type", "text"], ["mat-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", 3, "click"], ["formArrayName", "searchArray"], [1, "d-flex", "col-12", "p-0"], [1, "border-top", "border-bottom", "mb-2", "d-flex", "align-items-center", "col-12", "p-0"], [1, "col-3"], ["class", "d-flex col-12 p-0", 4, "ngFor", "ngForOf"], [1, "col-3", 2, "padding", "10px", 3, "ngClass"], ["target", "_blank", 1, "col-3", 3, "href"], [1, "col-3", "d-flex"], ["mat-raised-button", "", "color", "accent", 1, "mr-1", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "click"], [1, "mt-3", "pt-3"], ["formArrayName", "incorrectArray"], ["formControlName", "searchValue"]], template: function YoutubeMp3DownloaderPanelComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "button", 1);

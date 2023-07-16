@@ -141,10 +141,6 @@
         _createClass(LoaderComponent, [{
           key: "onMessage",
           value: function onMessage(event) {
-            console.log({
-              event: event
-            });
-
             if (event.data.shouldStartDownload) {
               this.download();
             }
@@ -164,9 +160,6 @@
             this.youtubeVideoId = this.link_now.searchParams.get("youtubeVideoId");
             this.format = this.link_now.searchParams.get("f");
             this.buttonTitle = JSON.stringify(this.link_now);
-            console.log({
-              shouldStartDownload: this.shouldStartDownload
-            });
           }
         }, {
           key: "ngOnChanges",

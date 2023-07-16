@@ -27,11 +27,6 @@ export class LoaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log({
-			//@ts-ignore
-			url: this.passedUrl.changingThisBreaksApplicationSecurity
-		});
-
 		this.link_now = new URL(
 			//@ts-ignore
 			this.passedUrl.changingThisBreaksApplicationSecurity

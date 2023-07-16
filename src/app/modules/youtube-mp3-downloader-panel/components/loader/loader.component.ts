@@ -16,7 +16,6 @@ export class LoaderComponent implements OnInit, OnChanges {
 	downloadUrl = "";
 	@HostListener("window:message", ["$event"])
 	onMessage(event) {
-		console.log({ event });
 		if (event.data.shouldStartDownload) {
 			this.download();
 		}
@@ -35,7 +34,6 @@ export class LoaderComponent implements OnInit, OnChanges {
 		this.youtubeVideoId = this.link_now.searchParams.get("youtubeVideoId");
 		this.format = this.link_now.searchParams.get("f");
 		this.buttonTitle = JSON.stringify(this.link_now);
-		console.log({ shouldStartDownload: this.shouldStartDownload });
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {

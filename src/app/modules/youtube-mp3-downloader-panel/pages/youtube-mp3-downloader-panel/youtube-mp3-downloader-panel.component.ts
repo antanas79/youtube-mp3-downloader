@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable, Inject, SimpleChanges, OnChanges } from "@angular/core";
+import { Component, OnInit, OnDestroy, Injectable, Inject } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { GetVideoInfoService } from "../../../shared/services/getVideoInfo";
 import { Subject } from "rxjs";
@@ -38,7 +38,7 @@ export const defaultProjects = [
 		GetVideoInfoService
 	]
 })
-export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, OnChanges {
+export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	private ngUnsubscribe = new Subject();
 	youtubeLinkFirstPart = "https://www.youtube.com/watch?v=";
 	loaded = false;
@@ -106,9 +106,6 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 	}
 
 	authenticate() {
-		console.log({
-			apiKey: this.projects.find((p) => p.name === localStorage.getItem("project"))?.apiKey
-		});
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 		return this.window.gapi.auth2
 			?.getAuthInstance()
@@ -198,9 +195,9 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 		}
 	}
 
-	ngOnChanges(changes: SimpleChanges): void {
-		console.log({ changes });
-	}
+	// ngOnChanges(changes: SimpleChanges): void {
+	// 	console.log({ changes });
+	// }
 
 	trimCharacter() {
 		let list = this.form.get("editableSearchArray") as FormArray;
