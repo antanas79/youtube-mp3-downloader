@@ -825,6 +825,7 @@
             // 	}
             // });
 
+            console.log("test");
             window.addEventListener("message", function (message) {
               var _a, _b, _c, _d;
 

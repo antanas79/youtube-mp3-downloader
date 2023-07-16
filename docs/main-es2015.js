@@ -381,6 +381,7 @@ class YoutubeMp3DownloaderPanelComponent {
         // 		this.foundVideosArray[message?.data?.youtubeVideoId].error = false;
         // 	}
         // });
+        console.log("test");
         window.addEventListener("message", (message) => {
             var _a, _b, _c, _d;
             console.log({ messageReceivedWithData: message });
