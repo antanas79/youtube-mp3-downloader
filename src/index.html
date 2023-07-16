@@ -81,7 +81,7 @@
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
 				if (projectNameFromUrl || project) {
-					handleProjectChange(projectFromUrl || projectNameFromUrl);
+					handleProjectChange(projectNameFromUrl || projectNameFromUrl);
 					gapi.auth2.init({
 						client_id: projectNameFromUrl || project || "youtube-downloader-310313" //a.popliauskis
 					});
