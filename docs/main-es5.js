@@ -825,7 +825,7 @@
                 var foundIndex = _this2.foundVideosArray.findIndex(function (el) {
                   var _a;
 
-                  return el.youtubeVideoId === ((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId);
+                  return el.videoId === ((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId);
                 });
 
                 console.log({

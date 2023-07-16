@@ -79,7 +79,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 		window.addEventListener("message", (message) => {
 			if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
 				const foundIndex = this.foundVideosArray.findIndex(
-					(el) => el.youtubeVideoId === message?.data?.youtubeVideoId
+					(el) => el.videoId === message?.data?.youtubeVideoId
 				);
 				console.log({ foundIndex, el: this.foundVideosArray[foundIndex] });
 				this.foundVideosArray[foundIndex].downloaded = true;
