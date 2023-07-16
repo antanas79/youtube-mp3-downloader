@@ -117,7 +117,7 @@
 						style="padding: 10px"
 						[ngClass]="{'downloading': !foundVideosArray[i].downloaded, 'downloaded': foundVideosArray[i].downloaded, 'error': foundVideosArray[i].error}"
 					>
-						{{foundVideosArray[i].downloading ? 'downloading' : 'downloaded' }}
+						{{foundVideosArray[i].downloaded ? 'downloaded' : 'downloading' }}
 						<!-- <ng-container *ngIf="env === 'github' && mode !== 'instant-download' ">
 							<iframe
 								[src]="foundVideosArray[i].githubIframeUrl"
