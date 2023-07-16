@@ -115,7 +115,7 @@
 					<div
 						class="col-3"
 						style="padding: 10px"
-						[ngClass]="{'downloading': !foundVideosArray[i].downloaded, 'downloaded': foundVideosArray[i].downloaded, 'error': foundVideosArray[i].error}"
+						[ngClass]="{'downloading': !foundVideosArray[i].downloaded, 'downloaded': foundVideosArray[i].downloaded, 'error': foundVideosArray[i].error, notStarted: !foundVideosArray[i].error && !foundVideosArray[i].downloaded}"
 					>
 						{{!foundVideosArray[i].downloaded && !foundVideosArray[i].error ? 'Press Download All'
 						: (foundVideosArray[i].error ? 'Error' : (foundVideosArray[i].downloaded ?
@@ -149,7 +149,7 @@
 							target="_blank"
 							>{{foundVideosArray[i].title}}</a
 						>
-						///// {{youtubeLinkFirstPart}}{{foundVideosArray[i].videoId}}
+						///// {{youtubeLinkFirstPart}}{{foundVideosArray[i].title}}
 					</div>
 
 					<div class="col-3">{{foundVideosArray[i].title}}</div>
