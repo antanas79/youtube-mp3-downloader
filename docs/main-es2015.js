@@ -375,12 +375,11 @@ class YoutubeMp3DownloaderPanelComponent {
             incorrectArray: this._formBuilder.array([])
         });
         window.addEventListener("message", (message) => {
-            var _a, _b;
+            var _a, _b, _c;
             console.log({ messageReceivedWithData: message });
-            if ((_b = (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.data) {
-                this.foundVideosArray[message.data.data.data].downloading =
-                    message.data.data.data.downloading;
-                this.foundVideosArray[message.data.data.data].error = message.data.data.data.error;
+            if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
+                this.foundVideosArray[(_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.youtubeVideoId].downloaded = true;
+                this.foundVideosArray[message.data.data.data].error = false;
             }
         });
     }

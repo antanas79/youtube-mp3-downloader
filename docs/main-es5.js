@@ -819,15 +819,15 @@
               incorrectArray: this._formBuilder.array([])
             });
             window.addEventListener("message", function (message) {
-              var _a, _b;
+              var _a, _b, _c;
 
               console.log({
                 messageReceivedWithData: message
               });
 
-              if ((_b = (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.data) {
-                _this2.foundVideosArray[message.data.data.data].downloading = message.data.data.data.downloading;
-                _this2.foundVideosArray[message.data.data.data].error = message.data.data.data.error;
+              if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
+                _this2.foundVideosArray[(_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.youtubeVideoId].downloaded = true;
+                _this2.foundVideosArray[message.data.data.data].error = false;
               }
             });
           }
