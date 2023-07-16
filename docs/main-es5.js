@@ -627,7 +627,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction4"](8, _c0, !ctx_r24.foundVideosArray[i_r27].downloaded, ctx_r24.foundVideosArray[i_r27].downloaded, ctx_r24.foundVideosArray[i_r27].error, !ctx_r24.foundVideosArray[i_r27].error && !ctx_r24.foundVideosArray[i_r27].downloaded));
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction4"](7, _c0, !ctx_r24.foundVideosArray[i_r27].downloaded, ctx_r24.foundVideosArray[i_r27].downloaded, ctx_r24.foundVideosArray[i_r27].error, !ctx_r24.foundVideosArray[i_r27].error && !ctx_r24.foundVideosArray[i_r27].downloaded));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
@@ -643,7 +643,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate2"](" ///// ", ctx_r24.youtubeLinkFirstPart, "", ctx_r24.foundVideosArray[i_r27].title, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ///// ", ctx_r24.foundVideosArray[i_r27].title, " ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
 
@@ -739,7 +739,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template, 15, 13, "div", 25);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, YoutubeMp3DownloaderPanelComponent_ng_container_18_div_13_Template, 15, 12, "div", 25);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, YoutubeMp3DownloaderPanelComponent_ng_container_18_div_14_Template, 5, 1, "div", 12);
 
@@ -773,7 +773,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate2"](" ", search_r35.title, " - ", search_r35.error ? "error" : search_r35.downloaded ? "downloaded" : "", " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", search_r35.title, " ");
         }
       }
 
@@ -783,7 +783,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " SUCCESFULL DOWNLOADS HISTORY ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_19_tr_2_Template, 2, 2, "tr", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_19_tr_2_Template, 2, 1, "tr", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 
@@ -815,7 +815,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate2"](" ", search_r38.title, " - ", search_r38.error ? "error" : search_r38.downloaded ? "downloaded" : "", " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", search_r38.title, " ");
         }
       }
 
@@ -825,7 +825,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, " ERRORED DOWNLOADS HISTORY ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_20_tr_2_Template, 2, 2, "tr", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](2, YoutubeMp3DownloaderPanelComponent_div_20_tr_2_Template, 2, 1, "tr", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "br");
 

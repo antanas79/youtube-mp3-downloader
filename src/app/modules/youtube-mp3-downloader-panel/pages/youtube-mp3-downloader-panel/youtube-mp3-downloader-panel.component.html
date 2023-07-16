@@ -149,7 +149,7 @@
 							target="_blank"
 							>{{foundVideosArray[i].title}}</a
 						>
-						///// {{youtubeLinkFirstPart}}{{foundVideosArray[i].title}}
+						///// {{foundVideosArray[i].title}}
 					</div>
 
 					<div class="col-3">{{foundVideosArray[i].title}}</div>
@@ -185,7 +185,7 @@
 	<div class="mt-3 pt-3" *ngIf="succesfullDownloads.length > 0">
 		SUCCESFULL DOWNLOADS HISTORY
 		<tr *ngFor="let search of succesfullDownloads, let i = index">
-			{{search.title}} - {{search.error ? 'error' : (search.downloaded ? 'downloaded': '')}}
+			{{search.title}}
 		</tr>
 		<br />
 		<br />
@@ -193,7 +193,7 @@
 	<div class="mt-3 pt-3" *ngIf="erroredDownloads.length > 0">
 		ERRORED DOWNLOADS HISTORY
 		<tr *ngFor="let search of erroredDownloads, let i = index">
-			{{search.title}} - {{search.error ? 'error' : (search.downloaded ? 'downloaded': '')}}
+			{{search.title}}
 		</tr>
 		<br />
 		<br />
