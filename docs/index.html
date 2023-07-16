@@ -33,12 +33,6 @@
 				<option value="local" id="local">local</option>
 				<option value="github" id="github">github</option>
 			</select>
-			<!-- <select style="height: 50px; width: 200px" name="mode" id="mode" onChange="handleMode()">
-				<option value="instant-download" id="instant-download">instant-download</option>
-				<option value="download-after-button-click-all" id="download-after-button-click-all">
-					download after button click all
-				</option>
-			</select> -->
 		</div>
 
 		<app-root></app-root>
@@ -62,15 +56,6 @@
 			}
 			handleEnv(localStorage.getItem("env"));
 
-			// function handleMode(passedValue) {
-			// 	var value = document.getElementById("mode").value;
-			// 	localStorage.setItem("mode", passedValue || value);
-			// 	if (passedValue) {
-			// 		document.getElementById(passedValue).setAttribute("selected", true);
-			// 	}
-			// }
-			// handleMode(localStorage.getItem("mode"));
-
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
 			const projects = new URL(window.location.href).searchParams.get("projects");
 			if (projects) {
@@ -93,20 +78,6 @@
 				}
 			});
 
-			// function triggerAutoDownload(passedVideoId) {
-			// 	if (document.getElementById(passedVideoId)) {
-			// 		document.getElementById(passedVideoId).click();
-			// 	}
-			// }
-
-			// // function triggerDownloadAll() {
-			// // 	console.log("sending post");
-			// // 	window.postMessage({ shouldStartDownload: true }, "*");
-			// // }
-
-			// window.parent.addEventListener("message", (message) => {
-			// 	console.log({ messageDataInYoutubeMp3DownloadParent: message });
-			// });
 			window.addEventListener("message", (message) => {
 				console.log({ messageDataInYoutubeMp3Download: message });
 			});

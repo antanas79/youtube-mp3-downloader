@@ -817,40 +817,23 @@
               whatCharacterToTrim: [localStorage.getItem("whatCharacterToTrim") || ""],
               searchArray: this._formBuilder.array([]),
               incorrectArray: this._formBuilder.array([])
-            }); // window.parent.addEventListener("message", (message) => {
-            // 	console.log({ messageParentReceivedWithData: message });
-            // 	if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
-            // 		this.foundVideosArray[message?.data?.youtubeVideoId].downloaded = true;
-            // 		this.foundVideosArray[message?.data?.youtubeVideoId].error = false;
-            // 	}
-            // });
-
-            console.log("test");
+            });
             window.addEventListener("message", function (message) {
-              var _a, _b, _c, _d;
+              var _a, _b;
 
-              console.log({
-                messageReceivedWithData: message
-              });
-              console.log({
-                youtubeVideoId: (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId
-              });
-              console.log({
-                foundVideosArray: _this2.foundVideosArray
-              });
-              console.log({
-                foundVideosArrayElement: _this2.foundVideosArray[(_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId]
-              });
-
-              if (((_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.downloaded) && ((_d = message === null || message === void 0 ? void 0 : message.data) === null || _d === void 0 ? void 0 : _d.youtubeVideoId)) {
-                var index = _this2.foundVideosArray.findIndex(function (el) {
+              if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
+                var foundIndex = _this2.foundVideosArray.findIndex(function (el) {
                   var _a;
 
                   return el.youtubeVideoId === ((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId);
                 });
 
-                _this2.foundVideosArray[index].downloaded = true;
-                _this2.foundVideosArray[index].error = false;
+                console.log({
+                  foundIndex: foundIndex,
+                  el: _this2.foundVideosArray[foundIndex]
+                });
+                _this2.foundVideosArray[foundIndex].downloaded = true;
+                _this2.foundVideosArray[foundIndex].error = false;
               }
             });
           }
