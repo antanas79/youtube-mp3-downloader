@@ -17,12 +17,6 @@ export class googleApiWindow extends Window {
 }
 window.gapi = window.gapi || {};
 
-export const defaultProjects = [
-	{ name: "youtube-mp3-downloader-392415", apiKey: "AIzaSyBTqkGKqxG1HWRPf7E7c4FSdWjBlIaWVZw" },
-	{ name: "youtube-downloader-310313", apiKey: "AIzaSyCVFuPYF1DCVTKf3GydrbcG7bY0Ws15DBw" },
-	{ name: "youtube-mp3-downloader-3", apiKey: "AIzaSyDvYrlBR551TYemye4-l1crGmjoFW-Tk6I" }
-];
-
 @Injectable({
 	providedIn: "root"
 })
@@ -47,7 +41,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	foundVideosArray = [];
 	iframeUrls = [];
 	titlesArray = [];
-	projects = defaultProjects;
+	projects = JSON.parse(localStorage.getItem("projects"));
 	shouldStartDownload = false;
 	succesfullDownloads = [];
 	erroredDownloads = [];

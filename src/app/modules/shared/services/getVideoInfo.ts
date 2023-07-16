@@ -1,12 +1,11 @@
 import { Injectable, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { defaultProjects } from "../../youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component";
 import { ActivatedRoute } from "@angular/router";
 
 @Injectable()
 export class GetVideoInfoService implements OnInit {
 	constructor(private route: ActivatedRoute, private http: HttpClient) {}
-	projects: Array<{ name: string; apiKey: string }> = defaultProjects;
+	projects: Array<{ name: string; apiKey: string }> = JSON.parse(localStorage.getItem("projects"));
 
 	ngOnInit(): void {
 		this.route.queryParams.subscribe((params) => {

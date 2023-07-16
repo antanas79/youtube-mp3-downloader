@@ -64,25 +64,19 @@
       /* harmony import */
 
 
-      var _youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ../../youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component */
-      "Dadq");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/common/http */
       "tk/3");
 
@@ -92,7 +86,7 @@
 
           this.route = route;
           this.http = http;
-          this.projects = _youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_0__["defaultProjects"];
+          this.projects = JSON.parse(localStorage.getItem("projects"));
         }
 
         _createClass(GetVideoInfoService, [{
@@ -130,10 +124,10 @@
       }();
 
       GetVideoInfoService.ɵfac = function GetVideoInfoService_Factory(t) {
-        return new (t || GetVideoInfoService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]));
+        return new (t || GetVideoInfoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
       };
 
-      GetVideoInfoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+      GetVideoInfoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
         token: GetVideoInfoService,
         factory: GetVideoInfoService.ɵfac
       });
@@ -184,7 +178,7 @@
       !*** ./src/app/modules/youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component.ts ***!
       \***********************************************************************************************************************************/
 
-    /*! exports provided: googleApiWindow, defaultProjects, YoutubeMp3DownloaderPanelComponent */
+    /*! exports provided: googleApiWindow, YoutubeMp3DownloaderPanelComponent */
 
     /***/
     function Dadq(module, __webpack_exports__, __webpack_require__) {
@@ -196,12 +190,6 @@
 
       __webpack_require__.d(__webpack_exports__, "googleApiWindow", function () {
         return googleApiWindow;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "defaultProjects", function () {
-        return defaultProjects;
       });
       /* harmony export (binding) */
 
@@ -858,16 +846,6 @@
       }( /*#__PURE__*/_wrapNativeSuper(Window));
 
       window.gapi = window.gapi || {};
-      var defaultProjects = [{
-        name: "youtube-mp3-downloader-392415",
-        apiKey: "AIzaSyBTqkGKqxG1HWRPf7E7c4FSdWjBlIaWVZw"
-      }, {
-        name: "youtube-downloader-310313",
-        apiKey: "AIzaSyCVFuPYF1DCVTKf3GydrbcG7bY0Ws15DBw"
-      }, {
-        name: "youtube-mp3-downloader-3",
-        apiKey: "AIzaSyDvYrlBR551TYemye4-l1crGmjoFW-Tk6I"
-      }];
 
       var YoutubeMp3DownloaderPanelComponent = /*#__PURE__*/function () {
         //@ts-ignore
@@ -887,7 +865,7 @@
           this.foundVideosArray = [];
           this.iframeUrls = [];
           this.titlesArray = [];
-          this.projects = defaultProjects;
+          this.projects = JSON.parse(localStorage.getItem("projects"));
           this.shouldStartDownload = false;
           this.succesfullDownloads = [];
           this.erroredDownloads = [];

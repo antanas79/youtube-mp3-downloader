@@ -22,11 +22,9 @@ module.exports = __webpack_require__(/*! /Users/antanas/Downloads/youtube-mp3-do
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetVideoInfoService", function() { return GetVideoInfoService; });
-/* harmony import */ var _youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component */ "Dadq");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 
 
 
@@ -34,7 +32,7 @@ class GetVideoInfoService {
     constructor(route, http) {
         this.route = route;
         this.http = http;
-        this.projects = _youtube_mp3_downloader_panel_pages_youtube_mp3_downloader_panel_youtube_mp3_downloader_panel_component__WEBPACK_IMPORTED_MODULE_0__["defaultProjects"];
+        this.projects = JSON.parse(localStorage.getItem("projects"));
     }
     ngOnInit() {
         this.route.queryParams.subscribe((params) => {
@@ -56,8 +54,8 @@ class GetVideoInfoService {
             "&key=" + ((_a = this.projects.find((p) => p.name === localStorage.getItem("project"))) === null || _a === void 0 ? void 0 : _a.apiKey));
     }
 }
-GetVideoInfoService.ɵfac = function GetVideoInfoService_Factory(t) { return new (t || GetVideoInfoService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
-GetVideoInfoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: GetVideoInfoService, factory: GetVideoInfoService.ɵfac });
+GetVideoInfoService.ɵfac = function GetVideoInfoService_Factory(t) { return new (t || GetVideoInfoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+GetVideoInfoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: GetVideoInfoService, factory: GetVideoInfoService.ɵfac });
 
 
 /***/ }),
@@ -94,13 +92,12 @@ const environment = {
 /*!***********************************************************************************************************************************!*\
   !*** ./src/app/modules/youtube-mp3-downloader-panel/pages/youtube-mp3-downloader-panel/youtube-mp3-downloader-panel.component.ts ***!
   \***********************************************************************************************************************************/
-/*! exports provided: googleApiWindow, defaultProjects, YoutubeMp3DownloaderPanelComponent */
+/*! exports provided: googleApiWindow, YoutubeMp3DownloaderPanelComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "googleApiWindow", function() { return googleApiWindow; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultProjects", function() { return defaultProjects; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YoutubeMp3DownloaderPanelComponent", function() { return YoutubeMp3DownloaderPanelComponent; });
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _shared_services_getVideoInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/services/getVideoInfo */ "4HhO");
@@ -380,11 +377,6 @@ function YoutubeMp3DownloaderPanelComponent_div_20_Template(rf, ctx) { if (rf & 
 class googleApiWindow extends Window {
 }
 window.gapi = window.gapi || {};
-const defaultProjects = [
-    { name: "youtube-mp3-downloader-392415", apiKey: "AIzaSyBTqkGKqxG1HWRPf7E7c4FSdWjBlIaWVZw" },
-    { name: "youtube-downloader-310313", apiKey: "AIzaSyCVFuPYF1DCVTKf3GydrbcG7bY0Ws15DBw" },
-    { name: "youtube-mp3-downloader-3", apiKey: "AIzaSyDvYrlBR551TYemye4-l1crGmjoFW-Tk6I" }
-];
 class YoutubeMp3DownloaderPanelComponent {
     //@ts-ignore
     // mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
@@ -401,7 +393,7 @@ class YoutubeMp3DownloaderPanelComponent {
         this.foundVideosArray = [];
         this.iframeUrls = [];
         this.titlesArray = [];
-        this.projects = defaultProjects;
+        this.projects = JSON.parse(localStorage.getItem("projects"));
         this.shouldStartDownload = false;
         this.succesfullDownloads = [];
         this.erroredDownloads = [];

@@ -18,7 +18,7 @@
 			<!-- <button style="height: 50px; width: 120px" onclick="triggerDownloadAll()">
 				TRIGGER ALL DOWNLOAD
 			</button> -->
-			<select style="height: 50px; width: 200px" name="project" id="project" onchange="handleProjectChange()">
+			<select style="height: 1px; width: 1px; display: hidden" name="project" id="project" onchange="handleProjectChange()">
 				<option value="youtube-mp3-downloader-392415" id="youtube-mp3-downloader-392415">
 					youtube-mp3-downloader-392415
 				</option>
@@ -29,7 +29,7 @@
 					youtube-mp3-downloader-3
 				</option>
 			</select>
-			<select style="height: 50px; width: 120px" name="env" id="env" onchange="handleEnv()">
+			<select style="height: 1px; width: 1px; display: hidden" name="env" id="env" onchange="handleEnv()">
 				<option value="local" id="local">local</option>
 				<option value="github" id="github">github</option>
 			</select>
@@ -46,6 +46,10 @@
 				}
 			}
 
+			function handleProjectsChange(passedValue) {
+				localStorage.setItem("projects", passedValue);
+			}
+
 			function handleEnv(passedValue) {
 				var value = document.getElementById("env").value;
 				localStorage.setItem("env", passedValue || value);
@@ -58,6 +62,7 @@
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
 			const projects = new URL(window.location.href).searchParams.get("projects");
 			if (projects) {
+				handleProjectsChange(projects);
 				const parsedProjects = JSON.parse(projects);
 				let arrOptions = [];
 				parsedProjects.forEach((p) =>
@@ -73,9 +78,9 @@
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
 				if (projectNameFromUrl || project) {
-					handleProjectChange(projectNameFromUrl || projectNameFromUrl);
+					handleProjectChange(projectNameFromUrl || project);
 					gapi.auth2.init({
-						client_id: projectNameFromUrl || project || "youtube-downloader-310313" //a.popliauskis
+						client_id: projectNameFromUrl || project
 					});
 				}
 			});
