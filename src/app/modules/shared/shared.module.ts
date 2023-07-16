@@ -8,6 +8,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HttpClientModule } from "@angular/common/http";
+import { MatTabsModule } from "@angular/material/tabs";
 
 @NgModule({
 	imports: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from "@angular/common/http";
 		MatListModule,
 		MatSelectModule,
 		MatFormFieldModule,
-		HttpClientModule
+		HttpClientModule,
+		MatTabsModule
 	],
 	exports: [
 		FormsModule,
@@ -30,7 +32,8 @@ import { HttpClientModule } from "@angular/common/http";
 		MatButtonModule,
 		MatListModule,
 		MatSelectModule,
-		MatFormFieldModule
+		MatFormFieldModule,
+		MatTabsModule
 	]
 })
 export class SharedModule {}

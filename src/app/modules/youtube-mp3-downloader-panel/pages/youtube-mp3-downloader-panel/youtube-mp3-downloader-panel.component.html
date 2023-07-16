@@ -1,7 +1,7 @@
 <div>
 	<div class="col-12 d-flex justify-content-end">
 		<ng-container *ngIf="foundVideosArray.length > 0">
-			<button style="height: 50px; margin-top: 15px" mat-button (click)="downloadAll()">
+			<button style="height: 50px; margin-top: 15px" mat-raised-button (click)="downloadAll()">
 				Download All
 			</button>
 		</ng-container>
@@ -19,7 +19,7 @@
 					<mat-error></mat-error>
 				</mat-form-field>
 
-				<button mat-button (click)="trimStart()">Trim</button>
+				<button mat-raised-button (click)="trimStart()">Trim</button>
 				<br />
 				<mat-form-field>
 					<input
@@ -31,7 +31,7 @@
 					<mat-error></mat-error>
 				</mat-form-field>
 
-				<button mat-button (click)="trimCharacter()">Trim character</button>
+				<button mat-raised-button (click)="trimCharacter()">Trim character</button>
 
 				<br />
 
@@ -43,7 +43,7 @@
 					Add to search array
 				</button>
 			</div>
-			<button mat-button type="submit" style="margin: 5px" (click)="submit()">SUBMIT</button>
+			<button mat-raised-button type="submit" style="margin: 5px" (click)="submit()">SUBMIT</button>
 			<div style="background-color: white; border-color: white; padding: 5px; width: 240px">
 				<mat-form-field style="height: 500px">
 					<textarea
@@ -70,7 +70,7 @@
 
 								<mat-error></mat-error>
 							</mat-form-field>
-							<button mat-button color="warn" (click)="deleteEditableSearchItem(i)">
+							<button mat-raised-button color="warn" (click)="deleteEditableSearchItem(i)">
 								Delete
 							</button>
 						</div>
@@ -91,7 +91,9 @@
 
 								<mat-error></mat-error>
 							</mat-form-field>
-							<button mat-button color="warn" (click)="deleteSearchItem(i)">Delete</button>
+							<button mat-raised-button color="warn" (click)="deleteSearchItem(i)">
+								Delete
+							</button>
 						</div>
 					</th>
 				</tr>
