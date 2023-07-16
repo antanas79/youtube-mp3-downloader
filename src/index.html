@@ -66,6 +66,8 @@
 
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
 			const projects = new URL(window.location.href).searchParams.get("projects");
+			const projectFromUrl = JSON.parse(new URL(window.location.href).searchParams.get("project"));
+			console.log({ projectFromUrl });
 			if (projects) {
 				const parsedProjects = JSON.parse(projects);
 				let arrOptions = [];
@@ -78,10 +80,10 @@
 			}
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
-				if (project) {
-					handleProjectChange(project);
+				if (projectFromUrl || project) {
+					handleProjectChange(projectFromUrl || project);
 					gapi.auth2.init({
-						client_id: project || "youtube-downloader-310313" //a.popliauskis
+						client_id: projectFromUrl || project || "youtube-downloader-310313" //a.popliauskis
 					});
 				}
 			});
