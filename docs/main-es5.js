@@ -818,7 +818,7 @@
               searchArray: this._formBuilder.array([]),
               incorrectArray: this._formBuilder.array([])
             });
-            window.addEventListener("message", function (message) {
+            window.parent.addEventListener("message", function (message) {
               var _a, _b, _c;
 
               console.log({

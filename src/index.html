@@ -112,7 +112,7 @@
 			// // 	window.postMessage({ shouldStartDownload: true }, "*");
 			// // }
 
-			window.addEventListener("message", (message) => {
+			window.parent.addEventListener("message", (message) => {
 				console.log({ messageDataInYoutubeMp3Download: message });
 			});
 		</script>

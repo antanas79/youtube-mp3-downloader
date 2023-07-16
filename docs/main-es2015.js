@@ -374,7 +374,7 @@ class YoutubeMp3DownloaderPanelComponent {
             searchArray: this._formBuilder.array([]),
             incorrectArray: this._formBuilder.array([])
         });
-        window.addEventListener("message", (message) => {
+        window.parent.addEventListener("message", (message) => {
             var _a, _b, _c;
             console.log({ messageReceivedWithData: message });
             if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.downloaded) && ((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.youtubeVideoId)) {
