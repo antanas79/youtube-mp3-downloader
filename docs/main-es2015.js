@@ -448,7 +448,7 @@ class YoutubeMp3DownloaderPanelComponent {
                             githubIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl("https://convert2mp3s.com/api/single/mp3?url=" + url),
                             localIframeUrl: this.sanitizer.bypassSecurityTrustResourceUrl("assets/loader.html?url=" + url),
                             searchedValue: this.form.value.searchArray[i].searchValue,
-                            downloading: true,
+                            downloaded: false,
                             error: false
                         });
                         setTimeout(function () {

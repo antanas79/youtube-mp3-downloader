@@ -908,7 +908,7 @@
                       githubIframeUrl: _this3.sanitizer.bypassSecurityTrustResourceUrl("https://convert2mp3s.com/api/single/mp3?url=" + url),
                       localIframeUrl: _this3.sanitizer.bypassSecurityTrustResourceUrl("assets/loader.html?url=" + url),
                       searchedValue: _this3.form.value.searchArray[i].searchValue,
-                      downloading: true,
+                      downloaded: false,
                       error: false
                     });
 

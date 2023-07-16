@@ -169,7 +169,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy, On
 										"assets/loader.html?url=" + url
 									),
 									searchedValue: this.form.value.searchArray[i].searchValue,
-									downloading: true,
+									downloaded: false,
 									error: false
 								});
 								setTimeout(function () {
