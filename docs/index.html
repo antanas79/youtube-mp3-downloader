@@ -67,14 +67,15 @@
 				);
 				document.getElementById("project").innerHTML = arrOptions.join();
 			}
-			const projectFromUrl = new URL(window.location.href).searchParams.get("project");
-			console.log({ projectFromUrl });
+			const projectNameFromUrl = new URL(window.location.href).searchParams.get("projectName");
+			// use apikey if needed
+			const projectApiKeyFromUrl = new URL(window.location.href).searchParams.get("projectName");
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
-				if (projectFromUrl || project) {
-					handleProjectChange(projectFromUrl || project);
+				if (projectNameFromUrl || project) {
+					handleProjectChange(projectFromUrl || projectNameFromUrl);
 					gapi.auth2.init({
-						client_id: projectFromUrl || project || "youtube-downloader-310313" //a.popliauskis
+						client_id: projectNameFromUrl || project || "youtube-downloader-310313" //a.popliauskis
 					});
 				}
 			});
