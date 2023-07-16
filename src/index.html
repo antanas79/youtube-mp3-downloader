@@ -111,11 +111,10 @@
 			// // 	console.log("sending post");
 			// // 	window.postMessage({ shouldStartDownload: true }, "*");
 			// // }
-			// window.addEventListener("message", (message) => {
-			// 	if (message.data.youtubeVideoId) {
-			// 		triggerAutoDownload(message.data.youtubeVideoId);
-			// 	}
-			// });
+
+			window.addEventListener("message", (message) => {
+				console.log({ messageDataInYoutubeMp3Download: message });
+			});
 		</script>
 	</body>
 </html>
