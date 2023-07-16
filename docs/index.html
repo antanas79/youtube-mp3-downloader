@@ -4,7 +4,7 @@
 		<meta charset="utf-8"/>
 		<title>AngularFormWithStepsV4</title>
 		<meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
-		<base href="/youtube-mp3-downloader/"/>
+		<base href="/"/>
 
 		<!-- before deploying dont forget to change href  back, and while debugging set to "/" -->
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -58,8 +58,9 @@
 
 			//IMPORTANT:projects can be passed via URL before stringifying the array of them [{name, apiKey}]
 			const projects = new URL(window.location.href).searchParams.get("projects");
-			const projectFromUrl = JSON.parse(new URL(window.location.href).searchParams.get("project"));
-			console.log({ projectFromUrl });
+			console.log({
+				projectFromUrlNotParsed: new URL(window.location.href).searchParams.get("project")
+			});
 			if (projects) {
 				const parsedProjects = JSON.parse(projects);
 				let arrOptions = [];
@@ -70,6 +71,7 @@
 				);
 				document.getElementById("project").innerHTML = arrOptions.join();
 			}
+			const projectFromUrl = new URL(window.location.href).searchParams.get("project");
 			const project = localStorage.getItem("project");
 			gapi.load("client:auth2", function () {
 				if (projectFromUrl || project) {
