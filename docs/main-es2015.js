@@ -411,11 +411,13 @@ class YoutubeMp3DownloaderPanelComponent {
                     el: this.foundVideosArray[foundIndex],
                     foundVideosArray: this.foundVideosArray
                 });
-                this.foundVideosArray[foundIndex].downloaded = true;
-                this.foundVideosArray[foundIndex].error = error || false;
-                this.downloadedhistorySearches.push(this.foundVideosArray[foundIndex]);
-                if (!error) {
-                    this.deleteFound(foundIndex);
+                if (foundIndex >= 0) {
+                    this.foundVideosArray[foundIndex].downloaded = true;
+                    this.foundVideosArray[foundIndex].error = error || false;
+                    this.downloadedhistorySearches.push(this.foundVideosArray[foundIndex]);
+                    if (!error) {
+                        this.deleteFound(foundIndex);
+                    }
                 }
             }
         });

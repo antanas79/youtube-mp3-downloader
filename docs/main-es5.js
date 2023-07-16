@@ -888,13 +888,16 @@
                   el: _this2.foundVideosArray[foundIndex],
                   foundVideosArray: _this2.foundVideosArray
                 });
-                _this2.foundVideosArray[foundIndex].downloaded = true;
-                _this2.foundVideosArray[foundIndex].error = error || false;
 
-                _this2.downloadedhistorySearches.push(_this2.foundVideosArray[foundIndex]);
+                if (foundIndex >= 0) {
+                  _this2.foundVideosArray[foundIndex].downloaded = true;
+                  _this2.foundVideosArray[foundIndex].error = error || false;
 
-                if (!error) {
-                  _this2.deleteFound(foundIndex);
+                  _this2.downloadedhistorySearches.push(_this2.foundVideosArray[foundIndex]);
+
+                  if (!error) {
+                    _this2.deleteFound(foundIndex);
+                  }
                 }
               }
             });
