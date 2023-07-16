@@ -827,7 +827,7 @@
 
             console.log("test");
             window.addEventListener("message", function (message) {
-              var _a, _b, _c, _d, _e, _f;
+              var _a, _b, _c, _d;
 
               console.log({
                 messageReceivedWithData: message
@@ -843,8 +843,14 @@
               });
 
               if (((_c = message === null || message === void 0 ? void 0 : message.data) === null || _c === void 0 ? void 0 : _c.downloaded) && ((_d = message === null || message === void 0 ? void 0 : message.data) === null || _d === void 0 ? void 0 : _d.youtubeVideoId)) {
-                _this2.foundVideosArray[(_e = message === null || message === void 0 ? void 0 : message.data) === null || _e === void 0 ? void 0 : _e.youtubeVideoId].downloaded = true;
-                _this2.foundVideosArray[(_f = message === null || message === void 0 ? void 0 : message.data) === null || _f === void 0 ? void 0 : _f.youtubeVideoId].error = false;
+                var index = _this2.foundVideosArray.findIndex(function (el) {
+                  var _a;
+
+                  return el.youtubeVideoId === ((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.youtubeVideoId);
+                });
+
+                _this2.foundVideosArray[index].downloaded = true;
+                _this2.foundVideosArray[index].error = false;
               }
             });
           }
