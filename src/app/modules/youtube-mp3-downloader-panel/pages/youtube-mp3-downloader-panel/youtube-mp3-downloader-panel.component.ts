@@ -49,7 +49,8 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	titlesArray = [];
 	projects = defaultProjects;
 	shouldStartDownload = false;
-	downloadedhistorySearches = [];
+	succesfullDownloads = [];
+	erroredDownloads = [];
 	env = localStorage.getItem("env");
 	//@ts-ignore
 	// mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
@@ -79,7 +80,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 		});
 		window.addEventListener("message", (message) => {
 			if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
-				const error = message?.data?.error;
+				const error = !!message?.data?.error;
 				const foundIndex = this.foundVideosArray.findIndex(
 					(el) => el.videoId === message?.data?.youtubeVideoId
 				);
@@ -92,10 +93,12 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 				if (foundIndex >= 0) {
 					this.foundVideosArray[foundIndex].downloaded = true;
 					this.foundVideosArray[foundIndex].error = error || false;
-					this.downloadedhistorySearches.push(this.foundVideosArray[foundIndex]);
 					if (!error) {
-						this.deleteFound(foundIndex);
+						this.succesfullDownloads.push(this.foundVideosArray[foundIndex]);
+					} else {
+						this.erroredDownloads.push(this.foundVideosArray[foundIndex]);
 					}
+					this.deleteFound(foundIndex);
 				}
 			}
 		});
