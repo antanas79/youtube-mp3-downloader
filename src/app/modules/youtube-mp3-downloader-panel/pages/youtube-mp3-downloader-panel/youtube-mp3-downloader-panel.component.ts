@@ -46,6 +46,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	succesfullDownloads = [];
 	erroredDownloads = [];
 	env = localStorage.getItem("env");
+	incorrectArray: string[] = [];
 	//@ts-ignore
 	// mode: "instant-download" | "download-after-button-click" = localStorage.getItem("mode");
 
@@ -69,8 +70,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 			editableSearchArray: this._formBuilder.array([]),
 			numberToTrimFromStart: [localStorage.getItem("numberToTrimFromStart") || 0],
 			whatCharacterToTrim: [localStorage.getItem("whatCharacterToTrim") || ""],
-			searchArray: this._formBuilder.array([]),
-			incorrectArray: this._formBuilder.array([])
+			searchArray: this._formBuilder.array([])
 		});
 		window.addEventListener("message", (message) => {
 			if (message?.data?.downloaded && message?.data?.youtubeVideoId) {
@@ -248,12 +248,7 @@ export class YoutubeMp3DownloaderPanelComponent implements OnInit, OnDestroy {
 	}
 
 	moveToIncorrectList(i: number) {
-		let incorrectArray = this.form.get("incorrectArray") as FormArray;
-		incorrectArray.push(
-			this._formBuilder.group({
-				searchValue: [this.form.value.searchArray[i].searchValue]
-			})
-		);
+		this.incorrectArray.push(this.form.value.searchArray[i].searchValue);
 		(this.form.get("searchArray") as FormArray).removeAt(i);
 		this.foundVideosArray.splice(i, 1);
 	}
